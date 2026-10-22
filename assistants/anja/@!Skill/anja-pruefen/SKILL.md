@@ -16,7 +16,10 @@ Ein Skill der Assistentin Anja. Er **liest nur** und berichtet; Korrekturen schl
 
 ## 1. Was geprüft wird
 
-Das Paket-Repo, das der User nennt, sonst das zuletzt besprochene oder angelegte. Maßstab ist die Spec der AIOS-Version aus `requires.aios` (die letzte freigegebene im Bereich). Lies dazu Spec 06 *`manifest.yaml`* und *Prüfung beim Holen*, bei Assistenten und Skills Spec 03.
+Das Paket-Repo, das der User nennt, sonst das zuletzt besprochene oder angelegte. Es gibt zwei Maßstäbe, in dieser Reihenfolge:
+
+1. **AIOS:** die Spec der AIOS-Version aus `requires.aios` (die letzte freigegebene im Bereich) und deine Praxis. Lies dazu Spec 06 *`manifest.yaml`* und *Prüfung beim Holen*, bei Assistenten und Skills Spec 03.
+2. **Paket:** die Spezifikation des Pakets im Konzeptprojekt (`@Spec/<paket>/`, sonst `@Spec/`), falls es eine gibt. Prüfe, ob das Paket die dort genannten Elemente, das Verhalten und die Grenzen hat und ob ein Abnahmetest vorliegt. Gibt es keine Spezifikation, sag das und nenne die Phase des Workflows.
 
 ## 2. Prüfliste
 
@@ -35,9 +38,10 @@ Lies vor jedem Block die genannte Praxis.
 | Abhängigkeiten | nötig, mit `~=`-Bereich, im Ziel-Hub vorhanden (`aios --library <paket>`, nur lesend) | `abhaengigkeiten.md` |
 | Lizenz | nach den Vorgaben; bei Apache-2.0 `LICENSE` und `NOTICE` vorhanden | Leitfaden, *Vorgaben* |
 | Inhalt | keine Memos, Notizen, Testdaten, `.DS_Store`, Geheimnisse; `README.md` vorhanden; Arbeitsbaum committet (`git -C <repo> status`) | Leitfaden |
+| Paket-Spec | Elemente, Verhalten, Grenzen und Lizenz wie in der Spezifikation des Pakets; Abnahmetest vorhanden | Spezifikation des Pakets |
 
 ## 3. Bericht
 
-Eine Tabelle: Block, Ergebnis (`ok` oder Befund), Fundstelle (Datei, Zeile), Quelle (Spec-Abschnitt oder Praxis). Danach die Vorschläge zur Korrektur, nummeriert. Ändere nichts ohne Ja.
+Eine Tabelle: Block, Ergebnis (`ok` oder Befund), Fundstelle (Datei, Zeile), **Maßstab** (AIOS oder Paket-Spec) mit Quelle (Spec-Abschnitt oder Praxis). Danach die Vorschläge zur Korrektur, nummeriert. Ändere nichts ohne Ja.
 
-Sag am Ende, was diese Prüfung **nicht** abdeckt: die Wirkung im Projekt. Die zeigt erst die Probe (`@@Praxis/probe-vor-veroeffentlichung.md`): lokal taggen, mit `aios --fetch <paket> --from <repo>` in ein leeres Testprojekt holen, im nächsten Chat ausprobieren.
+Sag am Ende, was diese Prüfung **nicht** abdeckt: die Wirkung im Projekt. Die zeigen erst Probe und Abnahme (`@@Praxis/probe-vor-veroeffentlichung.md`): lokal taggen, mit `aios --fetch <paket> --from <repo>` in ein leeres Testprojekt holen, im nächsten Chat ausprobieren.

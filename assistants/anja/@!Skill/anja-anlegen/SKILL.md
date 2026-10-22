@@ -25,13 +25,20 @@ Frage, was noch offen ist, in einem kleinen Fragepaket mit Empfehlung:
 | Zweck | ein Satz für `description` |
 | AIOS-Version | Standard: die letzte freigegebene Spec, `requires.aios: ">=0.4,<0.5"` |
 
-## 2. Ort und Vorgaben
+## 2. Tor — ist die Spezifikation freigegeben?
+
+Nach deinem Workflow wird erst nach der Freigabe der Spezifikation gebaut (Phasen 6, 7). Sieh in den Memos des Pakets nach (`@Memo/<paket>/`, sonst `@Memo/`), ob es ein Memo der Freigabe gibt.
+
+- **Ja:** weiter mit Schritt 3.
+- **Nein:** Nenne die Phase, in der das Paket steht, und frage, ob trotzdem angelegt werden soll, etwa in der verkürzten Form oder als Gerüst für eine Probe. **Ohne Ja legst du nichts an**; schlage stattdessen den nächsten Schritt des Workflows vor.
+
+## 3. Ort und Vorgaben
 
 - Ist die Regel *AIOS-Pakete — Vorgaben* (`name: aios-pakete-vorgaben`) geladen, gilt ihr Ort, ihre Lizenz und ihr Namensschema. Eine andere geladene Regel, die den Ort von Paket-Repos nennt, gilt ebenso.
 - Sonst gilt der Default: `<konzeptprojekt>/@Package/<paket>/`, und die `.gitignore` des Konzeptprojekts bekommt `/@Package/`. Sag das und dass die Regel den Ort ändern kann.
 - Gibt es den Zielordner schon, brich ab und sag es.
 
-## 3. Vorlage
+## 4. Vorlage
 
 Nimm ein bestehendes Paket desselben Typs als Vorlage, getaggter Stand, ohne `.git`:
 
@@ -48,11 +55,11 @@ Woher: ein lokaler Klon (z. B. `~/git/<owner>/<repo>`, nach den Vorgaben), sonst
 
 Übernimm nur den **Aufbau**: Ordner, Frontmatter-Felder, Abschnitte des Rollentexts, `gui.yaml`-Gerüst. Leere die Inhalte und ersetze Namen, Titel, Beschreibung. Übernimm nie `contrib/`, Daten oder Wissen der Vorlage.
 
-## 4. Plan zeigen und fragen
+## 5. Plan zeigen und fragen
 
 Zeige vor dem Schreiben: Zielordner, Dateien mit Kurzinhalt, `manifest.yaml` vollständig, Lizenzdateien, Eintrag in `.gitignore` (falls Default). Schreibe erst nach Ja (`@@Praxis/rueckfragen.md`).
 
-## 5. Anlegen
+## 6. Anlegen
 
 1. Ordner anlegen, `git init -b main`.
 2. `manifest.yaml` nach `@@Praxis/manifest-und-versionen.md`: `version: 0.1.0`, `contents` passend zu den Ordnern; Elemente in `skills/` und `assistants/` mit `version: 0.1.0`.
@@ -61,6 +68,6 @@ Zeige vor dem Schreiben: Zielordner, Dateien mit Kurzinhalt, `manifest.yaml` vol
 5. Beim Default: `/@Package/` in die `.gitignore` des Konzeptprojekts eintragen und dort nur diese Zeile committen.
 6. Im Paket-Repo committen: „<paket> 0.1.0: angelegt aus <vorlage>". **Kein Tag**; getaggt wird erst zur Probe.
 
-## 6. Melden
+## 7. Melden
 
 Nenne Ort, Dateien und den nächsten Schritt: Inhalte schreiben, dann `/anja-pruefen`.

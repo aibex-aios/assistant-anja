@@ -95,7 +95,7 @@ Du führst. Stelle die offenen Punkte als **Fragegruppen** (wenige Fragen je Gru
 3. die Option **„Diskutieren"**, wenn der Auftraggeber die Frage erst besser verstehen will; dann erklärst du, beantwortest Rückfragen und stellst die Frage danach neu;
 4. zuletzt die **eigene Antwort** (im Auswahlwerkzeug die freie Eingabe).
 
-Jede Option nennt kurz ihre Folge. **Nach jeder Fragegruppe** hältst du die Antworten in einem Memo fest und committest lokal. Was du dabei selbst festlegst, legst du in der nächsten Fragegruppe zur Bestätigung vor (P4). Lehnt der Auftraggeber eine Fragegruppe ab und sagt „weiter", gelten die Empfehlungen. Proben aus der Bewertung führst du in dieser Phase durch und hältst das Ergebnis als Memo fest.
+Jede Option nennt kurz ihre Folge. **Nach jeder Fragegruppe** hältst du die Antworten in einem Memo fest und committest lokal. Was du dabei selbst festlegst, legst du in der nächsten Fragegruppe zur Bestätigung vor (P4). Lehnt der Auftraggeber eine Fragegruppe ab und sagt „weiter", gelten die Empfehlungen. Proben aus der Bewertung führst du in dieser Phase durch und hältst das Ergebnis als Memo fest. Entscheidungen sammelst du; ins Paket kommen sie erst nach der Freigabe der Spezifikation.
 
 ## Phase 4 — Soll-Bild und Skizze
 
@@ -104,7 +104,7 @@ Jede Option nennt kurz ihre Folge. **Nach jeder Fragegruppe** hältst du die Ant
 
 ## Phase 5 — Spezifikation
 
-Schreibe die Spezifikation aus Soll-Bild und Skizze, Status *Entwurf*, mit dem Abnahmetest. Specs beschreiben den gültigen Soll-Stand, wiederholen sich nicht, widersprechen sich nicht und verweisen aufeinander statt zu wiederholen. Was du beim Schreiben festlegst, führst du als Festlegungen zur Bestätigung (P4). Binde den Auftraggeber mit einer Fragegruppe ein, wo eine Formulierung oder ein Beispiel seine Entscheidung braucht.
+Schreibe die Spezifikation aus Soll-Bild und Skizze, Status *Entwurf*, mit dem Abnahmetest, in `@Spec/` des Konzeptprojekts (bei mehreren Paketen `@Spec/<paket>/`), mit Spec-Frontmatter nach dem Skill `memo`. Specs beschreiben den gültigen Soll-Stand, wiederholen sich nicht, widersprechen sich nicht und verweisen aufeinander statt zu wiederholen. Was du beim Schreiben festlegst, legst du in einem Memo als Festlegungen zur Bestätigung vor (P4). Binde den Auftraggeber mit einer Fragegruppe ein, wo eine Formulierung oder ein Beispiel seine Entscheidung braucht.
 
 ## Phase 6 — Freigabe
 
@@ -133,21 +133,23 @@ Ein kurzes Memo (Status *Analyse*): was lief gut, was hat gehakt, was soll künf
 
 ## Wo der Workflow steht
 
-Den Stand speicherst du nicht eigens; du liest ihn aus den Memos des Konzeptprojekts, die neuesten zuerst:
+Den Stand speicherst du nicht eigens; du liest ihn aus den Memos des Pakets, die neuesten zuerst.
 
-| Memo vorhanden | Phase |
+**Wo:** Konzipiert das Konzeptprojekt mehrere Pakete, hat jedes Paket einen Unterordner `@Memo/<paket>/` (und `@Spec/<paket>/`); übergreifende Memos stehen direkt in `@Memo/`. Konzipiert es nur ein Paket, gilt `@Memo/`. Kommt ein zweites Paket dazu, schlägst du für das neue einen Unterordner vor; die Memos des ersten bleiben oder ziehen nach Rückfrage um. Im Unterordner vergibst du die Nummer selbst (höchste plus 1), Form, Kopf und Dateiname nach dem Skill `memo`.
+
+| vorhanden | Phase |
 |---|---|
 | keine Memos zum Paket | 0 beginnt |
-| Einstieg (mit Führung und Umfang) | 0 abgeschlossen, 1 |
+| Einstieg | 1 |
 | nur Konzeptmemos | 1 |
-| Bewertung des Konzepts | 2 abgeschlossen, 3 beginnt |
-| Memos der Fragegruppen, aber kein Soll-Bild | 3 |
-| Soll-Bild und Skizze | 4 abgeschlossen |
+| Bewertung | 3 beginnt |
+| Memos der Fragegruppen, kein Soll-Bild | 3 |
+| Soll-Bild und Skizze | 5 beginnt, sobald der Auftraggeber der Skizze zugestimmt hat |
 | Spezifikation mit Status *Entwurf* | 5 |
-| Freigabe der Spezifikation | 6 abgeschlossen, 7 |
+| Freigabe der Spezifikation | 7 |
 | Implementierungsplan, Berichte der Schritte | 7 |
-| Memos der Abnahme, aber kein Abnahme-Memo | 8 |
-| Abnahme-Memo | 8 abgeschlossen, 9 |
+| Memos der Abnahme, kein Abnahme-Memo | 8 |
+| Abnahme-Memo | 9 |
 | Rückblick | Workflow abgeschlossen |
 
 Nenne zu Beginn eines Chats, wenn danach gefragt wird oder du den nächsten Schritt vorschlägst, die Phase und den nächsten Schritt.
