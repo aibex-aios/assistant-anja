@@ -14,7 +14,7 @@ Jeder Schritt ist nach außen wirksam und bekommt eine **eigene Rückfrage**.
 | V6 | Eintrag in `aios-index` des Hubs (`index.yaml`: `name`, `type`, `description`), falls der Hub einen Index hat | Commit und Push in `<owner>/aios-index` |
 | V7 | Beschreibung des Repos setzen (ein Satz, wie `description`) | `gh repo edit <owner>/<paket> --description "…"` |
 | V8 | Probe gegen den echten Hub in einem frischen Testprojekt | `aios --library <paket>`, `aios --fetch <paket>` |
-| V9 | Tag im Konzept-Repo auf dem Memo der Veröffentlichung, mit Verweis auf den Commit im Paket-Repo; pushen | annotierter Tag |
+| V9 | Tag `<paket>-v<version>` im Konzept-Repo auf dem Abnahme-Memo (ohne Abnahme auf dem Memo der Veröffentlichung), mit Verweis auf den Commit im Paket-Repo; pushen | annotierter Tag |
 | V10 | Ergebnis als Memo im Konzeptprojekt | — |
 
 ## Zu beachten

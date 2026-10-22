@@ -19,7 +19,7 @@ Ein Skill der Assistentin Anja. **Jeder Schritt wirkt nach außen** und braucht 
 Prüfe und berichte, bevor du etwas vorschlägst:
 
 - `/anja-pruefen` ohne offene Befunde; Arbeitsbaum committet.
-- Probe bestanden (`@@Praxis/probe-vor-veroeffentlichung.md`); fehlt sie, sag das und empfiehl sie.
+- Probe bestanden (`@@Praxis/probe-vor-veroeffentlichung.md`) und, nach deinem Workflow, die Abnahme (Phase 8) mit Abnahme-Memo; fehlt etwas, sag das und empfiehl es.
 - Lokaler Tag `v<version>` gleich `version` im Manifest und auf dem letzten Commit; sonst Tag anlegen bzw. nachziehen (nur solange er nicht gepusht ist).
 - `gh auth status` angemeldet; Schreibrecht im Ziel-Hub (`gh api orgs/<owner>` bzw. `gh api repos/<owner>/<paket>` mit `permissions.push`).
 - Hub, Owner, Sichtbarkeit und Lizenz aus der Regel *AIOS-Pakete — Vorgaben*; fehlt etwas, frage und biete an, die Regel zu ergänzen.
@@ -37,7 +37,7 @@ Zeige alle Schritte auf einmal als nummerierte Liste mit den Befehlen. Führe si
 | 5 | Beschreibung | `gh repo edit <owner>/<paket> --description "<description>"` |
 | 6 | Index, falls der Hub `aios-index` hat und das Paket neu ist oder sich `description` geändert hat | Klon von `<owner>/aios-index`, Eintrag in `index.yaml`, Commit, Push |
 | 7 | Probe gegen den Hub in einem frischen Testprojekt | `aios --library <paket>`, `aios --fetch <paket> --to <testprojekt>` |
-| 8 | Tag im Konzept-Repo auf dem Memo der Veröffentlichung, annotiert mit Verweis auf den Commit im Paket-Repo; pushen | `git -C <konzept> tag -a <paket>-v<version> -m "…"`, `git -C <konzept> push origin <tag>` |
+| 8 | Tag im Konzept-Repo auf dem Abnahme-Memo (ohne Abnahme auf dem Memo der Veröffentlichung), annotiert mit Verweis auf den Commit im Paket-Repo; pushen | `git -C <konzept> tag -a <paket>-v<version> -m "…"`, `git -C <konzept> push origin <tag>` |
 
 Bei einer **neuen Version** eines schon veröffentlichten Pakets entfallen 1 und 4.
 

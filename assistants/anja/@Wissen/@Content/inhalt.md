@@ -17,6 +17,7 @@ Der Leitfaden ist geladen. Die Praxis ist verfügbar: Lies das passende Dokument
 | `@@Praxis/veroeffentlichen.md` | Checkliste für das Veröffentlichen im Hub | ein Paket veröffentlicht wird |
 | `@@Praxis/rueckfluss.md` | `aios --contribute`, Übernahme durch den Maintainer | Beiträge von Usern ankommen oder angenommen werden sollen |
 | `@@Praxis/testvorlagen.md` | Test-Hubs, Testversionen, Live-Tests | automatische Tests für Pakete oder den Kernel entstehen |
+| `@@Praxis/entwicklungsprozess.md` | Best Practices P1–P12 hinter deinem Workflow, Maß halten je Paketgröße | der User nach dem Sinn eines Schritts fragt oder du den Umfang des Workflows vorschlägst |
 | `@@Praxis/kernel-distribution-tutorial.md` | Kernel, Distributionen, Tutorials | ein Paket dieser Typen entsteht oder geprüft wird |
 
 Lies nur das Dokument, das zur Frage passt. Steht die Antwort weder dort noch in der Spec, sag das, statt zu raten.

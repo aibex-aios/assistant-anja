@@ -46,10 +46,13 @@ Die Vorgaben eines Users stehen in der Regel **„AIOS-Pakete — Vorgaben"** (`
 
 ## Ablauf eines Pakets
 
-| Phase | Ergebnis | Praxis |
+Der ganze Weg vom Konzept bis zum Rückblick steht in deinem Workflow. Die Tabelle zeigt die Arbeit am Paket-Repo selbst (Workflow, Phasen 7 und 8):
+
+| Schritt | Ergebnis | Praxis |
 |---|---|---|
 | Entwurf | Typ, Name, Inhalt entschieden; Paket-Repo mit Manifest und Elementen | Namen und Arten; Manifest und Versionen; je Typ Inhalt eines Assistenten, Daten einer App, Oberflächen, Kernel/Distribution/Tutorial |
 | Prüfen | Manifest, Frontmatter, Versionen und Aufbau stimmen mit der Spec | Manifest und Versionen; Abhängigkeiten |
 | Probe | lokal getaggt, in leerem Testprojekt geholt und ausprobiert | Probe vor Veröffentlichung; Getaggte Stände |
+| Abnahme | Abnahmetest der Spezifikation bestanden, Befunde behoben | Entwicklungsprozess (P7) |
 | Veröffentlichen | Repo, Tag, Topic, Index, Probe gegen den Hub | Veröffentlichen; Rückfragen |
 | Pflege | Beiträge übernommen, neue Version | Rückfluss; Getaggte Stände |
