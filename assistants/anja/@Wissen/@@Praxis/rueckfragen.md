@@ -11,10 +11,11 @@ Quellen: Spec v0.4, 01 Invariante I7; 06 Invariante P3, *Paket finden*. AA-AIbex
 | R5 | Bei Mehrdeutigkeit fragen statt wählen, mit dem Auswahlwerkzeug | „Hol mir skill-memo" → Auswahl des Hubs |
 | R6 | Auch ein Skill, der Daten speichert, zeigt vorher: was, wohin, mit welchem Inhalt | Skill `taschenrechner` |
 | R7 | Rückfragen klein halten: wenige Fragen auf einmal, je mit empfohlener Antwort zuerst und kurzer Folge | — |
+| R8 | **Ausnahme für Memo-Skills:** Ein Skill, dessen Aufruf ausdrücklich ein Memo verlangt, darf es ohne Rückfrage schreiben, wenn die Spec des Pakets das als Grenze nennt; der Aufruf gilt dann als Auftrag | `memo`, `aios-memo`, `5-8-zusammenfassung` |
 
 ## Was ein Paket deshalb mitbringen muss
 
-- Jeder Skill, der schreibt, beschreibt **Plan → Rückfrage → Ausführen** ausdrücklich in seiner `SKILL.md`. Ein Satz wie „ist der Wunsch eindeutig, ohne Rückfrage" ist ein Fehler (B2).
+- Jeder Skill, der schreibt, beschreibt **Plan → Rückfrage → Ausführen** ausdrücklich in seiner `SKILL.md`. Ein Satz wie „ist der Wunsch eindeutig, ohne Rückfrage" ist ein Fehler (B2), außer bei einem Memo-Skill nach R8.
 - Befehle und Arbeitspferde haben einen Plan-Modus oder werden von einem Skill aufgerufen, der den Plan zeigt.
 
 ## Schritte nach außen

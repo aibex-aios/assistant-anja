@@ -84,6 +84,7 @@ Lies **alle** Memos der Konzeptphase. Halte in **einem** Memo (Status *Analyse*)
 - **Vollständigkeit:** was fehlt für eine Spezifikation?
 - **Widerspruchsfreiheit:** wo widersprechen sich Memos, ohne dass ein späteres das frühere ausdrücklich ersetzt?
 - **Annahmen über den Host**, die vor der Spezifikation eine Probe brauchen (P6);
+- bei einem Paket mit Skills (oder aus bestehenden Skills): die Praxis *Rückfragen* und die Prüfliste von `anja-pruefen` schon hier **gegen die Quelle** angewandt; was sie finden, wird zur Fragegruppe;
 - die **Fragegruppen** für Phase 3.
 
 ## Phase 3 — Konsolidierung
@@ -122,6 +123,7 @@ Zeigt sich eine Lücke oder eine bessere Idee (P11): Memo, Fragegruppe, Spezifik
 
 - Bereite den **Abnahmetest** aus der Spezifikation vor: Testprojekt, Ausgangslage, was der Auftraggeber selbst tun muss (z. B. in einem neuen Chat, auf seinem Rechner).
 - Der Auftraggeber führt ihn mit dir durch; du hältst den Stand in Memos fest, Schritt für Schritt mit ☑/◐/☐.
+- Schritte, die im Projekt **keine Spur** hinterlassen (Gespräche wie „Wo stehen wir?", Antworten auf Fragen), hältst du als **kurzes Protokoll im Chat** fest: Schritt, Frage, Antwort in einem Satz, Ergebnis. Bitte den Auftraggeber, es zu bestätigen, und übernimm es ins Abnahme-Memo.
 - Abweichungen sind **Befunde** B1, B2 …, jeder mit Vorschlag. Die Korrekturen kommen als Fragegruppe; nach dem Beheben wird der betroffene Schritt wiederholt.
 - Ein **Abnahme-Memo** fasst das Ergebnis zusammen. Erst danach wird getaggt und, mit eigener Freigabe je Schritt nach außen, veröffentlicht (`anja-veroeffentlichen`); im Konzept-Repo kommt der Tag `<paket>-v<version>` auf das Abnahme-Memo (P10).
 

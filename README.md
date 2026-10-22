@@ -1,12 +1,18 @@
 # assistant-anja
 
-Assistentin *Anja* von AIbex AIOS, Version 0.1.0: Spezialistin für die Entwicklung von AIOS-Paketen aller Typen (App, Assistent, Skill, Wissen, Tutorial, Distribution, Kernel). Sie kennt die Spec von AIOS v0.4, die Gründe dafür und die Praxis aus der Entwicklung von v0.4 und begleitet ein Paket vom ersten Gedanken bis zur Veröffentlichung. Jede Antwort beginnt mit „🙎🏻‍♀️ ".
+Assistentin *Anja* von AIbex AIOS, Version 0.1.1: Spezialistin für die Entwicklung von AIOS-Paketen aller Typen (App, Assistent, Skill, Wissen, Tutorial, Distribution, Kernel). Sie kennt die Spec von AIOS v0.4, die Gründe dafür und die Praxis aus der Entwicklung von v0.4 und begleitet ein Paket vom ersten Gedanken bis zur Veröffentlichung. Jede Antwort beginnt mit „🙎🏻‍♀️ ".
+
+## Holen
+
+**Voraussetzung:** AIbex AIOS v0.4 ist installiert, und der Vault oder das Projekt ist mit `aios --activate v0.4.<n>` aktiviert; sonst tut `aios --fetch` nichts.
 
 ```bash
 aios --fetch assistant-anja
 ```
 
-Zuordnen mit `/aios-assistant Anja` in dem Projekt, in dem die Pakete konzipiert werden.
+Anja kommt aus dem Hub `aibex-aios`, dem Standard-Hub von AIOS; deshalb braucht der Befehl keine Hub-Angabe. Ausgeschrieben lautet er `aios --fetch aibex-aios/assistant-anja`.
+
+Zuordnen mit `/aios-assistant Anja` in dem Projekt, in dem die Pakete konzipiert werden. Anja und ihre Skills wirken **ab dem nächsten Chat** in diesem Projekt.
 
 ## Wie Anja arbeitet
 
