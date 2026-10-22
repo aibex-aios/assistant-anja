@@ -12,6 +12,10 @@ Zuordnen mit `/aios-assistant Anja` in dem Projekt, in dem die Pakete konzipiert
 
 Anja liest die Spec im Code-Repo `aibex-aios/aibex-aios` (je Version über den Tag) und die Gründe im Konzept-Repo `aibex-aios/AA-AIbex-AIOS`. Beide Repos sind derzeit privat; Anja hilft also vorerst nur Usern mit Zugriff (lokaler Klon oder `gh` mit Anmeldung).
 
+## Lizenz
+
+Apache License 2.0 (`LICENSE`), Rechteinhaber AIbex KG (`NOTICE`). Die Marken „AIbex" und „AIbex AIOS" sind nicht mitlizenziert.
+
 ## Vorgaben
 
 Wo Paket-Repos liegen, in welchem Hub veröffentlicht wird und unter welcher Lizenz, legt jeder User selbst fest: in einer Regel *AIOS-Pakete — Vorgaben* (`name: aios-pakete-vorgaben`) im Masterspace des Konzeptprojekts. Ohne sie legt Anja Paket-Repos in `<projekt>/@Package/<paket>/` an und fragt den Rest, wenn er gebraucht wird.
