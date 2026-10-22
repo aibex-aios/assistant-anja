@@ -12,7 +12,7 @@ Quellen: Spec v0.4, 03 *Registrieren* (Wirksamkeit); 06 *Holen* (Pflegeprojekte,
 | P6 | Assistent zuordnen und ausprobieren: Prefix, Handwerk, **Grenzen** (eine Aufgabe außerhalb des Bereichs stellen) | `/aios-assistant <Name>` |
 | P7 | Oberfläche in der eigenen **und** in einer frischen Session prüfen; jeden Ausweg im Chat einmal benutzen | `/gui` bzw. `/<name>-gui` |
 | P8 | **Live-Probe mit einem kleinen Modell** (z. B. haiku): Was ein kleines Modell aus Rollentext und Skill richtig macht, macht ein großes erst recht | — |
-| P9 | Korrigieren, lokalen Tag nachziehen, im Testprojekt neu holen | `aios --fetch --upgrade <paket>` |
+| P9 | Korrigieren, lokalen Tag nachziehen, im Testprojekt entfernen, Cache-Eintrag löschen, neu holen (Praxis *Getaggte Stände*, Abschnitt *Zu beachten*) | `aios --fetch --remove <paket>`, dann `aios --fetch <paket> --from <repo>` |
 
 ## Zu beachten
 

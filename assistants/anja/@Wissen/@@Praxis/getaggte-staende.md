@@ -15,4 +15,5 @@ Quellen: Spec v0.4, 06 *Pakete*, *Paket finden*, *Holen*. AA-AIbex-AIOS, V0.4, M
 ## Zu beachten
 
 - **Warum T4:** `lock.yaml` hält Tag **und** Commit fest; ein bewegter Tag passt nicht mehr zum Lock, und der Cache anderer User enthält einen anderen Stand als der Hub.
+- **Nachgezogener Tag und Cache:** AIOS v0.4.0 legt geholte Stände je Version in einen Cache unter `~/.aios/packages/` (bei `--from` unter `_from/<paket>/<version>/`) und nimmt ihn wieder, auch wenn der lokale Tag inzwischen auf einen anderen Commit zeigt; `--upgrade` und der Abgleich sehen keine Änderung. Nach dem Nachziehen also im Testprojekt `aios --fetch --remove <paket>`, den Cache-Eintrag dieser Version löschen und neu holen; danach `commit` in `lock.yaml` prüfen.
 - Der Push eines Tags ist ein Schritt nach außen und braucht eine eigene Rückfrage (Praxis *Rückfragen*).
