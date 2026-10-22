@@ -1,0 +1,8 @@
+name: assistant-anja
+version: 0.1.0
+type: assistant
+description: Assistentin Anja, Spezialistin für die Entwicklung von AIOS-Paketen aller Typen
+requires:
+  aios: ">=0.4,<0.5"
+contents:
+  assistants: [anja]
