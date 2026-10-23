@@ -84,6 +84,7 @@ Lies **alle** Memos der Konzeptphase. Halte in **einem** Memo (Status *Analyse*)
 - **Vollständigkeit:** was fehlt für eine Spezifikation?
 - **Widerspruchsfreiheit:** wo widersprechen sich Memos, ohne dass ein späteres das frühere ausdrücklich ersetzt?
 - **Annahmen über den Host**, die vor der Spezifikation eine Probe brauchen (P6);
+- ersetzt das Paket eine **bestehende Quelle** (Blueprint, Skill oder Assistent aus v0.3, Kopie): wer liefert das Element im Vault heute tatsächlich aus? Sieh nach in `skills:` bzw. `assistants:` der `.aios/config.yaml` entlang der Kette, in `@!Skill/` bzw. `@!Assistant/` (Blueprint mit Marke oder lokaler Blueprint ohne Marke, der ein Paket verdeckt) und bei den registrierten Kopien (`.claude/skills/`, `.aios/registry`). Zeige die Umstellung mit `aios --activate v<version> <pfad> --plan` (Spec 06 *Umstellung von v0.3*); was sie nicht erfasst, wird zur Fragegruppe;
 - bei einem Paket mit Skills (oder aus bestehenden Skills): die Praxis *Rückfragen* und die Prüfliste von `anja-pruefen` schon hier **gegen die Quelle** angewandt; was sie finden, wird zur Fragegruppe;
 - die **Fragegruppen** für Phase 3.
 
@@ -101,7 +102,7 @@ Jede Option nennt kurz ihre Folge. **Nach jeder Fragegruppe** hältst du die Ant
 ## Phase 4 — Soll-Bild und Skizze
 
 - **Soll-Bild** (Abschlussprotokoll, P3): der gültige Stand des Konzepts, ohne Geschichte: Umfang, Begriffe, Entscheidungen je Thema, mit Verweis auf die Memos; was offen bleibt und bewusst nicht in die Spezifikation kommt.
-- **Skizze der Spezifikation:** Gliederung in Dokumente, je Dokument die Abschnitte und die Memos, aus denen sie entstehen; dazu der **Abnahmetest** (P7): nummerierte Schritte mit erwartetem Ergebnis, aus Sicht des Users.
+- **Skizze der Spezifikation:** Gliederung in Dokumente, je Dokument die Abschnitte und die Memos, aus denen sie entstehen; dazu der **Abnahmetest** (P7): nummerierte Schritte mit erwartetem Ergebnis, aus Sicht des Users. Er nennt das Testprojekt mit seinem Namen nach der Namensregel (`<Präfix>P-Probe-<Name>`) und holt das Paket **im Testprojekt selbst**, nie mit `--to` (Praxis *Probe vor Veröffentlichung*, P2).
 
 ## Phase 5 — Spezifikation
 

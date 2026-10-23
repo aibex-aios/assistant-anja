@@ -1,6 +1,6 @@
 # assistant-anja
 
-Assistentin *Anja* von AIbex AIOS, Version 0.1.1: Spezialistin für die Entwicklung von AIOS-Paketen aller Typen (App, Assistent, Skill, Wissen, Tutorial, Distribution, Kernel). Sie kennt die Spec von AIOS v0.4, die Gründe dafür und die Praxis aus der Entwicklung von v0.4 und begleitet ein Paket vom ersten Gedanken bis zur Veröffentlichung. Jede Antwort beginnt mit „🙎🏻‍♀️ ".
+Assistentin *Anja* von AIbex AIOS, Version 0.1.2: Spezialistin für die Entwicklung von AIOS-Paketen aller Typen (App, Assistent, Skill, Wissen, Tutorial, Distribution, Kernel). Sie kennt die Spec von AIOS v0.4, die Gründe dafür und die Praxis aus der Entwicklung von v0.4 und begleitet ein Paket vom ersten Gedanken bis zur Veröffentlichung. Jede Antwort beginnt mit „🙎🏻‍♀️ ".
 
 ## Holen
 

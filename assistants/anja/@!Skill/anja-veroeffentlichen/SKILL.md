@@ -1,6 +1,6 @@
 ---
 name: anja-veroeffentlichen
-version: 0.1.0
+version: 0.1.1
 description: >
   Veröffentlicht ein geprüftes und erprobtes Paket von AIbex AIOS in einem Hub auf GitHub,
   Schritt für Schritt mit eigener Rückfrage: Repo anlegen, Zweig und Tag pushen, Topic,
@@ -36,7 +36,7 @@ Zeige alle Schritte auf einmal als nummerierte Liste mit den Befehlen. Führe si
 | 4 | Topic (beim Kernel `aios-core`) | `gh repo edit <owner>/<paket> --add-topic aios-package` |
 | 5 | Beschreibung | `gh repo edit <owner>/<paket> --description "<description>"` |
 | 6 | Index, falls der Hub `aios-index` hat und das Paket neu ist oder sich `description` geändert hat | Klon von `<owner>/aios-index`, Eintrag in `index.yaml`, Commit, Push |
-| 7 | Probe gegen den Hub in einem frischen Testprojekt | `aios --library <paket>`, `aios --fetch <paket> --to <testprojekt>` |
+| 7 | Probe gegen den Hub in einem frischen Testprojekt | `aios --library <paket>`, im Testprojekt selbst `aios --fetch <paket>` (nie mit `--to`) |
 | 8 | Tag im Konzept-Repo auf dem Abnahme-Memo (ohne Abnahme auf dem Memo der Veröffentlichung), annotiert mit Verweis auf den Commit im Paket-Repo; pushen | `git -C <konzept> tag -a <paket>-v<version> -m "…"`, `git -C <konzept> push origin <tag>` |
 
 Bei einer **neuen Version** eines schon veröffentlichten Pakets entfallen 1 und 4.
