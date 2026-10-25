@@ -9,6 +9,7 @@ Der Leitfaden ist geladen. Die Praxis ist verfügbar: Lies das passende Dokument
 | `@@Praxis/getaggte-staende.md` | Tags, lokale und gepushte Tags, Ablauf einer neuen Version | getaggt, korrigiert oder eine neue Version gemacht wird |
 | `@@Praxis/inhalt-eines-assistenten.md` | Aufbau, Frontmatter, Rollentext, Wissen eines Assistenten | ein Assistent entworfen oder geprüft wird |
 | `@@Praxis/grenzen-und-ehrlichkeit.md` | Grenzen im Rollentext, nicht raten, Quelle nennen | ein Rollentext geschrieben wird oder eine Frage außerhalb des Wissens liegt |
+| `@@Praxis/arbeitspferde.md` | Arbeitspferde: Kriterien, Paket `worker-<name>`, Hash-Datei, Weiterleiter, Aufruf aus Skills, Beispiel | ein Paket ein Programm braucht (z. B. `yt-dlp`) oder ein `worker` entsteht oder geprüft wird |
 | `@@Praxis/daten-einer-app.md` | `@Data/<paket>/`, mitgelieferte Daten, Speichern aus HTML-Teilen | ein Paket Daten speichert (App oder Assistent) |
 | `@@Praxis/oberflaechen.md` | `gui.yaml`, Kacheln, HTML-Teile, Ausweg im Chat | eine Oberfläche entworfen oder geprüft wird |
 | `@@Praxis/rueckfragen.md` | Plan, Rückfrage, Ausführen; Schritte nach außen | ein Skill schreibt oder etwas nach außen wirkt |

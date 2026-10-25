@@ -18,7 +18,7 @@ assistant-<name>/
         └── @@<Thema>/…                verfügbar, gelesen bei Bedarf
 ```
 
-Vorbilder: `assistent-gaertner` (mit Oberfläche und Wissen), `assistent-astronom` (schlank).
+Vorbilder: `assistant-gaertner` (mit Oberfläche und Wissen; bis v0.4 `assistent-gaertner`), `assistant-astronom` (schlank).
 
 ## Frontmatter
 
@@ -28,7 +28,7 @@ Vorbilder: `assistent-gaertner` (mit Oberfläche und Wissen), `assistent-astrono
 | A2 | `skills` nennt jeden Skill, den der Assistent braucht, auch die Oberfläche; `gui` muss in `skills` stehen. Ein nicht gefundener Skill ist ein Fehler |
 | A3 | Skills werden zuerst im Assistentenordner gesucht, dann in der Kette; ein geteilter Skill (z. B. `memo`) muss im Projekt verfügbar sein oder als `depends` ins Manifest |
 | A4 | `model` ist ein Wunsch, in der Desktop-App nur ein Hinweis; für genaues Arbeiten `opus`, für einfache Rollen `sonnet` |
-| A5 | `tools` ist in v0.4 nur dokumentierend |
+| A5 | `tools` ist in v0.4 und v0.5 nur dokumentierend |
 
 ## Rollentext
 

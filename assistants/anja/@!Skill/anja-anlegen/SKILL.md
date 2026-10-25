@@ -1,9 +1,9 @@
 ---
 name: anja-anlegen
-version: 0.1.0
+version: 0.2.0
 description: >
   Legt ein neues Paket-Repo für AIbex AIOS an, für jeden Typ (app, assistant, skill, knowledge,
-  tutorial, distribution, kernel): Typ und Name klären, Ort nach den Vorgaben des Users,
+  tutorial, distribution, worker, kernel): Typ und Name klären, Ort nach den Vorgaben des Users,
   Vorlage aus einem bestehenden Paket, Manifest, Lizenz, lokaler Commit. Verwenden bei
   "neues Paket", "Paket anlegen", "Modul anlegen", "Repo für … anlegen".
 ---
@@ -20,10 +20,10 @@ Frage, was noch offen ist, in einem kleinen Fragepaket mit Empfehlung:
 
 | Punkt | Hilfe |
 |---|---|
-| Typ | `app`, `assistant`, `skill`, `knowledge`, `tutorial`, `distribution`, `kernel`; Begriffe im Leitfaden |
+| Typ | `app`, `assistant`, `skill`, `knowledge`, `tutorial`, `distribution`, `worker`, `kernel`; Begriffe im Leitfaden. Braucht ein Paket ein Programm (z. B. `yt-dlp`), ist das ein eigenes Paket `worker-<name>` (`@@Praxis/arbeitspferde.md`) |
 | Name | `<typ>-<name>`, Element `<name>`, beim Assistenten ein Titel; lies `@@Praxis/namen-und-arten.md` |
 | Zweck | ein Satz für `description` |
-| AIOS-Version | Standard: die letzte freigegebene Spec, `requires.aios: ">=0.4,<0.5"` |
+| AIOS-Version | Standard: die letzte freigegebene Spec; `requires.aios: ">=0.4,<0.6"`, bei `worker` und bei einer Distribution mit `kernel:` `">=0.5,<0.6"` (`@@Praxis/manifest-und-versionen.md`, M2) |
 
 ## 2. Tor — ist die Spezifikation freigegeben?
 
@@ -44,12 +44,14 @@ Nimm ein bestehendes Paket desselben Typs als Vorlage, getaggter Stand, ohne `.g
 
 | Typ | Vorlage |
 |---|---|
-| `assistant` | `assistent-gaertner` (mit Oberfläche und Wissen) oder `assistent-astronom` (schlank) |
+| `assistant` | `assistant-gaertner` (mit Oberfläche und Wissen) oder `assistant-astronom` (schlank); unter v0.4 `assistent-gaertner` bzw. `assistent-astronom` |
 | `skill` | `skill-memo` |
 | `knowledge` | `knowledge-orion` |
 | `app` | `app-taschenrechner` |
 | `kernel` | `aibex-aios` |
-| `distribution`, `tutorial` | keine; nur `manifest.yaml` und `README.md`, beim Tutorial dazu `knowledge/` (`@@Praxis/kernel-distribution-tutorial.md`) |
+| `worker` | das Beispiel `worker-yt-dlp` in `@@Praxis/arbeitspferde.md` (Manifest, `requirements.in`, Hash-Datei mit `pip-compile --generate-hashes --strip-extras`) |
+| `distribution` | der AIOS-Skill `/aios-distribution`, der vom erprobten Stand eines Projekts ausgeht (`@@Praxis/kernel-distribution-tutorial.md`) |
+| `tutorial` | keine; nur `manifest.yaml`, `README.md` und `knowledge/` (`@@Praxis/kernel-distribution-tutorial.md`) |
 
 Woher: ein lokaler Klon (z. B. `~/git/<owner>/<repo>`, nach den Vorgaben), sonst ein flacher Klon des Tags in ein temporäres Verzeichnis: `git clone --depth 1 --branch v<version> https://github.com/aibex-aios/<repo> <tmp>`.
 
@@ -62,7 +64,7 @@ Zeige vor dem Schreiben: Zielordner, Dateien mit Kurzinhalt, `manifest.yaml` vol
 ## 6. Anlegen
 
 1. Ordner anlegen, `git init -b main`.
-2. `manifest.yaml` nach `@@Praxis/manifest-und-versionen.md`: `version: 0.1.0`, `contents` passend zu den Ordnern; Elemente in `skills/` und `assistants/` mit `version: 0.1.0`.
+2. `manifest.yaml` nach `@@Praxis/manifest-und-versionen.md`: `version: 0.1.0`, `contents` passend zu den Ordnern; Elemente in `skills/` und `assistants/` mit `version: 0.1.0`. Bei `worker`: kein `contents`, sondern `worker:` mit `kind`, `programs`, `check` und `requirements` (`@@Praxis/arbeitspferde.md`); die Hash-Datei erzeugst du mit Rückfrage, weil `pip-compile` aus dem Netz liest.
 3. Lizenz nach den Vorgaben. Bei Apache-2.0: `license: Apache-2.0`, `LICENSE` als unveränderte Kopie (z. B. aus `@!Package/assistant-anja/LICENSE`), `NOTICE` mit Paketname, Copyright-Zeile und, falls vorgegeben, dem Satz zu den Marken. Ohne Vorgabe: Lizenz offen lassen und vor dem Veröffentlichen fragen.
 4. `README.md`: Zweck, `aios --fetch <paket>`, Aufruf bzw. Zuordnung, Lizenz.
 5. Beim Default: `/@Package/` in die `.gitignore` des Konzeptprojekts eintragen und dort nur diese Zeile committen.

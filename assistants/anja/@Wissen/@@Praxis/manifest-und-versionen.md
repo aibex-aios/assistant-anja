@@ -1,6 +1,6 @@
 # Praxis — Manifest und Versionen
 
-Quellen: Spec v0.4, 03 *Format eines Skills*, *Versionen*, *Assistenten*; 06 *`manifest.yaml`*, *Prüfung beim Holen*, *Versionen und Bereiche*. AA-AIbex-AIOS, V0.4, Memos 19 (L5), 44 (X1), 70. Pakete im Hub `aibex-aios`.
+Quellen: Spec v0.5, 03 *Format eines Skills*, *Versionen*, *Assistenten*; 06 *`manifest.yaml`*, *Prüfung beim Holen*, *Versionen und Bereiche*, *Distributionen*; 07 *Paket `worker-<name>`*. AA-AIbex-AIOS, V0.4, Memos 19 (L5), 44 (X1), 70. Pakete im Hub `aibex-aios`.
 
 ## Manifest
 
@@ -10,7 +10,7 @@ version: 0.4.2
 type: app
 description: Programmierbarer RPN-Taschenrechner nach dem Vorbild des HP-15C mit lernenden Funktionstasten (Demo-App von AIbex AIOS)
 requires:
-  aios: ">=0.4,<0.5"
+  aios: ">=0.4,<0.6"
 depends:
   skill-memo: "~=6.0"
 contents:
@@ -23,12 +23,13 @@ license: MIT
 | # | Regel |
 |---|---|
 | M1 | Pflicht: `name`, `version`, `type`, `description` (ein Satz), `requires.aios` |
-| M2 | `requires.aios: ">=0.4,<0.5"` für Pakete, die für v0.4 gebaut sind; Vorabkennungen des Kernels zählen nicht (`0.4.0-rc1` gilt als `0.4.0`) |
+| M2 | `requires.aios` nach der AIOS-Version, für die das Paket gebaut ist: `">=0.4,<0.6"` für Pakete, die unter v0.4 und v0.5 laufen, `">=0.5,<0.6"` für Pakete, die Neues aus v0.5 brauchen (`worker`, `distribution` mit `kernel:`); unter v0.5 lassen sich Pakete mit `<0.5` nicht holen. Vorabkennungen des Kernels zählen nicht (`0.5.0-dev` gilt als `0.5.0`) |
 | M3 | `contents` nennt jedes Element; jeder Name muss als Ordner vorhanden sein, sonst holt `aios --fetch` das Paket nicht. `gui` muss in `skills` stehen; Elementnamen dürfen sich nicht wiederholen |
 | M4 | Ein Assistent steht unter `contents.assistants`; seine privaten Skills (`assistants/<name>/@!Skill/`) stehen **nicht** in `contents.skills` |
 | M5 | `depends` nur für Pakete, ohne die das Paket nicht läuft; `aios` gehört nach `requires` (Praxis *Abhängigkeiten*) |
 | M6 | `license` setzen, wenn Daten Dritter enthalten sind (`knowledge-orion`: CC-BY-4.0); sonst nach den Vorgaben des Users |
-| M7 | `contents.hooks` ist in v0.4 ohne Wirkung; `aios --fetch` meldet ihn |
+| M7 | `contents.hooks` ist in v0.5 ohne Wirkung; `aios --fetch` meldet ihn |
+| M8 | `type` ist einer von `kernel`, `app`, `assistant`, `skill`, `knowledge`, `tutorial`, `distribution`, `worker`; `worker:` nur bei `type: worker` (Praxis *Arbeitspferde*), `kernel:` nur bei `type: distribution` (Praxis *Kernel, Distributionen und Tutorials*); `workers:` aus v0.4 wird abgelehnt |
 
 ## Versionen
 

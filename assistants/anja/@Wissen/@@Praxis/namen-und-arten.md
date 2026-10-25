@@ -1,10 +1,10 @@
 # Praxis — Namen und Arten
 
-Quellen: Spec v0.4, 03 *Registrieren*, *Assistenten*; 06 *`manifest.yaml`*, *Umstellung von v0.3*. AA-AIbex-AIOS, V0.4, Memo 43; V0.5, Memo 05.
+Quellen: Spec v0.5, 03 *Registrieren*, *Assistenten*; 06 *Pakete* (Paketnamen), *`manifest.yaml`*, *Umstellung von v0.3*, *Umstellung von v0.4*. AA-AIbex-AIOS, V0.4, Memo 43; V0.5, Memos 05, 15, 35.
 
 | # | Regel | Beispiel |
 |---|---|---|
-| N1 | Ein Paket heißt `<typ>-<name>`, kleingeschrieben, mit `-`. Die Art im Namen ist **gleich dem `type`** im Manifest, englisch: `app`, `assistant`, `skill`, `knowledge`, `tutorial`, `distribution` | `app-taschenrechner`, `skill-memo`, `knowledge-orion`, `assistant-anja` |
+| N1 | Ein Paket heißt `<typ>-<name>`, kleingeschrieben, mit `-`. Die Art im Namen ist **gleich dem `type`** im Manifest, englisch: `app`, `assistant`, `skill`, `knowledge`, `tutorial`, `distribution`, `worker` | `app-taschenrechner`, `skill-memo`, `knowledge-orion`, `assistant-anja`, `worker-yt-dlp`, `distribution-rothirsch` |
 | N2 | Das Element im Paket heißt `<name>`, ohne Art | Paket `skill-memo` → Skill `memo`; Paket `assistant-anja` → Assistent `anja` |
 | N3 | Der Kernel heißt `aios`, ohne Art; eine Variante unterscheidet sich durch Hub bzw. Repo | `aibex-aios/aibex-aios` |
 | N4 | Der Paketname ist zugleich der Repo-Name im Hub und der Ordnername lokal | `aibex-aios/skill-memo` |
@@ -16,6 +16,6 @@ Quellen: Spec v0.4, 03 *Registrieren*, *Assistenten*; 06 *`manifest.yaml`*, *Ums
 
 ## Zu beachten
 
-- **Ausnahme in v0.4:** Die Demo-Assistenten heißen noch `assistent-gaertner` und `assistent-astronom` (älteres deutsches Präfix, V0.4, Memo 43). Der Kernel v0.4 bildet bei der Umstellung von v0.3 `assistants: <name>` auf `assistent-<name>` ab. Die Umbenennung ist für v0.5 vorgesehen (V0.5, Memo 05, Wunsch). Neue Pakete heißen immer `assistant-…`.
+- **Bis v0.4:** Die Demo-Assistenten hießen `assistent-gaertner` und `assistent-astronom` (älteres deutsches Präfix, V0.4, Memo 43). Ab v0.5 heißen sie `assistant-gaertner` und `assistant-astronom`; die alten Repos bleiben mit Verweis im README, und `aios --activate v0.5.<n>` benennt sie in `packages:` um (Spec 06, *Umstellung von v0.4*). Neue Pakete heißen immer `assistant-…`.
 - **Daten eines Pakets** liegen unter dem Paketnamen, nicht unter dem Elementnamen: `@Data/app-taschenrechner/`.
 - **Umstellung von v0.3:** `skills: memo` → `skill-memo`; Einträge `<assistant>/<skill>` haben kein Paket (Spec 06).

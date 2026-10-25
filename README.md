@@ -1,10 +1,10 @@
 # assistant-anja
 
-Assistentin *Anja* von AIbex AIOS, Version 0.1.2: Spezialistin für die Entwicklung von AIOS-Paketen aller Typen (App, Assistent, Skill, Wissen, Tutorial, Distribution, Kernel). Sie kennt die Spec von AIOS v0.4, die Gründe dafür und die Praxis aus der Entwicklung von v0.4 und begleitet ein Paket vom ersten Gedanken bis zur Veröffentlichung. Jede Antwort beginnt mit „🙎🏻‍♀️ ".
+Assistentin *Anja* von AIbex AIOS, Version 0.2.0: Spezialistin für die Entwicklung von AIOS-Paketen aller Typen (App, Assistent, Skill, Wissen, Tutorial, Distribution, Arbeitspferd, Kernel). Sie kennt die Spec von AIOS v0.4 und v0.5, die Gründe dafür und die Praxis aus der Entwicklung und begleitet ein Paket vom ersten Gedanken bis zur Veröffentlichung. Jede Antwort beginnt mit „🙎🏻‍♀️ ".
 
 ## Holen
 
-**Voraussetzung:** AIbex AIOS v0.4 ist installiert, und der Vault oder das Projekt ist mit `aios --activate v0.4.<n>` aktiviert; sonst tut `aios --fetch` nichts.
+**Voraussetzung:** AIbex AIOS v0.4 oder v0.5 ist installiert, und der Vault oder das Projekt ist mit `aios --activate v0.4.<n>` bzw. `v0.5.<n>` aktiviert; sonst tut `aios --fetch` nichts.
 
 ```bash
 aios --fetch assistant-anja

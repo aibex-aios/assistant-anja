@@ -1,13 +1,13 @@
 # Praxis — Rückfragen
 
-Quellen: Spec v0.4, 01 Invariante I7; 06 Invariante P3, *Paket finden*. AA-AIbex-AIOS, V0.4, Memos 65, 67 (B2), 74. Skill `taschenrechner`.
+Quellen: Spec v0.5, 01 Invarianten I7, I10, I11; 06 Invariante P3, *Holen*; 07 *Abläufe*, *Paket finden*. AA-AIbex-AIOS, V0.4, Memos 65, 67 (B2), 74. Skill `taschenrechner`.
 
 | # | Regel | Beispiel |
 |---|---|---|
 | R1 | Jede schreibende Handlung zeigt vorher, **was** sie tut, und wartet auf Bestätigung; ein Skill holt den Plan mit `--plan`, fragt und ruft erst nach Ja mit `--yes` auf | `aios --fetch … --plan` → Plan → Ja → `--yes` |
 | R2 | **Der Wunsch ist keine Bestätigung des Plans.** „Installiere den Taschenrechner" erlaubt nicht, ohne Rückfrage zu holen; der User kennt den Plan (z. B. eine Abhängigkeit) noch nicht | Abnahme v0.4: `skill-memo` kam ungefragt mit (B2) |
 | R3 | Ohne Rückfrage nur, wenn der User den **gezeigten** Plan bestätigt oder ausdrücklich „ohne Rückfrage" gesagt hat | — |
-| R4 | Skripte eines Pakets (Arbeitspferde, Befehle) laufen nie ohne eigene Bestätigung mit Pfad und Inhalt | `aios --worker <paket>/db install` |
+| R4 | Installationen und Skripte eines Pakets laufen nie ohne Bestätigung: das setup eines Arbeitspferds steht im Plan beim Laden (bei `kind: python` die Liste `paket==version`, bei `kind: script` der Inhalt der Skripte); Befehle nur, wenn der User sie aufruft | Plan von `aios --fetch skill-video-analyse` mit setup von `worker-yt-dlp` |
 | R5 | Bei Mehrdeutigkeit fragen statt wählen, mit dem Auswahlwerkzeug | „Hol mir skill-memo" → Auswahl des Hubs |
 | R6 | Auch ein Skill, der Daten speichert, zeigt vorher: was, wohin, mit welchem Inhalt | Skill `taschenrechner` |
 | R7 | Rückfragen klein halten: wenige Fragen auf einmal, je mit empfohlener Antwort zuerst und kurzer Folge | — |

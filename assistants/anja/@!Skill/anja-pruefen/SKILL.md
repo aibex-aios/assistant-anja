@@ -1,6 +1,6 @@
 ---
 name: anja-pruefen
-version: 0.1.1
+version: 0.2.0
 description: >
   Prüft ein Paket-Repo von AIbex AIOS gegen die Spec und die Praxis: Manifest, Namen,
   contents gegen die Ordner, Versionen, Frontmatter von Skills und Assistenten, Wissen,
@@ -27,7 +27,9 @@ Lies vor jedem Block die genannte Praxis.
 
 | Block | Prüfe | Praxis |
 |---|---|---|
-| Manifest | Pflichtfelder; `type` bekannt; `description` ein Satz; `requires.aios` gesetzt; `aios` nicht in `depends` | `manifest-und-versionen.md` |
+| Manifest | Pflichtfelder; `type` bekannt; `description` ein Satz; `requires.aios` gesetzt und passend zur Spec (M2); `aios` nicht in `depends`; kein `workers:` | `manifest-und-versionen.md` |
+| Arbeitspferd | nur bei `type: worker`: `worker:` mit `kind` (`python`, `script`), mindestens ein Programm in `programs`, `check` empfohlen; kein `contents`; bei `python` die Datei aus `requirements` mit jedem Eintrag `paket==version` und `--hash=sha256:…`; bei `script` `setup` und `remove` vorhanden, Programme nach `$AIOS_WORKER_DIR/bin/`; `requires.aios: ">=0.5,<0.6"` | `arbeitspferde.md` |
+| Distribution | nur bei `type: distribution`: `kernel:` (falls vorhanden) und alle `depends` mit `==`; kein `contents` | `kernel-distribution-tutorial.md` |
 | Namen | `name` = Repo-Ordner, Muster `<typ>-<name>`, keine verbotenen Namen; `name` im Frontmatter = Verzeichnisname | `namen-und-arten.md` |
 | `contents` | jeder Name als Ordner vorhanden; jeder Ordner in `skills/`, `assistants/`, `commands/` genannt; `gui` in `skills`; keine doppelten Elementnamen; private Skills nicht in `contents.skills` | `manifest-und-versionen.md` |
 | Versionen | gültiges SemVer überall; Manifest = Elemente in `skills/` und `assistants/`; private Skills mit eigener Version; letzter Tag (`git -C <repo> tag`) kleiner als die Version im Manifest, sonst ist eine neue Version fällig | `manifest-und-versionen.md`, `getaggte-staende.md` |
@@ -35,7 +37,7 @@ Lies vor jedem Block die genannte Praxis.
 | Skills | jeder schreibende Skill beschreibt Plan → Rückfrage → Ausführen; kein „ohne Rückfrage" beim bloßen Wunsch. Ein Memo-Skill ohne Rückfrage ist kein Befund, wenn die Spec des Pakets ihn als Grenze nennt (R8); berichte ihn als „Ausnahme laut Paket-Spec" | `rueckfragen.md` |
 | Daten | geschrieben wird nur nach `@Data/<paket>/`, nie ins Paket | `daten-einer-app.md` |
 | Oberfläche | `gui.yaml` gültig (1–12 Kacheln, je genau ein Ziel); kein Text mit `/` am Anfang; HTML-Teile ohne Inline-Handler; Ausweg im Chat für jede Aktion | `oberflaechen.md` |
-| Abhängigkeiten | nötig, mit `~=`-Bereich, im Ziel-Hub vorhanden (`aios --library <paket>`, nur lesend) | `abhaengigkeiten.md` |
+| Abhängigkeiten | nötig, mit `~=`-Bereich (bei Distributionen `==`), im Ziel-Hub vorhanden (`aios --library <paket>`, nur lesend); braucht ein Skill ein Programm, steht das `worker`-Paket in `depends` und der Skill ruft `~/.aios/bin/<programm>` statt des `PATH`, ohne Installationsanweisung im Chat | `abhaengigkeiten.md`, `arbeitspferde.md` |
 | Lizenz | nach den Vorgaben; bei Apache-2.0 `LICENSE` und `NOTICE` vorhanden | Leitfaden, *Vorgaben* |
 | Inhalt | keine Memos, Notizen, Testdaten, `.DS_Store`, Geheimnisse; `README.md` vorhanden; Arbeitsbaum committet (`git -C <repo> status`) | Leitfaden |
 | Paket-Spec | Elemente, Verhalten, Grenzen und Lizenz wie in der Spezifikation des Pakets; Abnahmetest vorhanden | Spezifikation des Pakets |

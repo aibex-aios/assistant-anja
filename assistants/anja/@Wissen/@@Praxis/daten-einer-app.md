@@ -1,6 +1,6 @@
 # Praxis — Daten einer App
 
-Quellen: Spec v0.4, 06 *Daten von Apps*, *Arbeitspferde*, *Demo-App Taschenrechner*, Invarianten P1, P3, P6; 03 *Beschreibung einer Oberfläche*. AA-AIbex-AIOS, V0.4, Memos 43, 49–56, 67; V0.5, Memo 07. Paket `app-taschenrechner` 0.4.2.
+Quellen: Spec v0.5, 06 *Daten der Pakete*; 07 *Definition* (K7); *Demo-App Taschenrechner*, Invarianten P1, P3, P6; 03 *Beschreibung einer Oberfläche*. AA-AIbex-AIOS, V0.4, Memos 43, 49–56, 67; V0.5, Memo 07. Paket `app-taschenrechner` 0.4.2.
 
 | # | Regel | Beispiel |
 |---|---|---|
@@ -13,8 +13,8 @@ Quellen: Spec v0.4, 06 *Daten von Apps*, *Arbeitspferde*, *Demo-App Taschenrechn
 | D7 | Ein HTML-Teil kann keine Dateien schreiben: Er sendet mit `sendPrompt` eine Nachricht, ein Skill zeigt, was gespeichert wird, und schreibt nach Ja | Rechner → „Speichere die Funktionstaste A …" |
 | D8 | Gespeicherte Daten kommen beim Öffnen über `{{aios-data <datei>}}` in den HTML-Teil (`null`, wenn die Datei fehlt) | `{{aios-data funktionstasten.yaml}}` |
 | D9 | Ein Datenformat wählen, das ein Mensch auch im Chat tippen kann; der Skill versteht die getippte Form | Tasten durch Leerzeichen, `x`/`*` für `×` |
-| D10 | Arbeitspferde bekommen `AIOS_DATA` = `@Data/<paket>/`; ihre Skripte laufen nur nach eigener Bestätigung | `aios --worker <paket>/db install` |
+| D10 | Ein Arbeitspferd (`worker-…`) hat keine eigenen Daten im Projekt; das **nutzende** Paket legt sie unter seinem `@Data/` ab (Spec 07, K7) | Datenbank einer App unter `@Data/app-notizen/` |
 
 ## Assistenten
 
-Spec v0.4 nennt `@Data/` nur für Apps. Als Konvention von AIbex gilt D1–D5 auch für Assistenten: `@Data/assistant-<name>/` (V0.5, Memo 07, Wunsch an die Spec). Vorgaben des Users gehören trotzdem in eine Regel im Masterspace, nicht nach `@Data/`.
+Ab v0.5 gilt `@Data/` für jedes Paket, dessen Elemente schreiben, also auch für Assistenten: `@Data/assistant-<name>/` (Spec 06, *Daten der Pakete*; V0.5, Memo 07). Vorgaben des Users gehören trotzdem in eine Regel im Masterspace, nicht nach `@Data/`.

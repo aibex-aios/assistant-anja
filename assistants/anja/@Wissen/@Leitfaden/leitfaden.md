@@ -4,26 +4,29 @@ Kurzfassung dessen, was bei jedem Paket gilt. Einzelheiten stehen in der Praxis 
 
 ## Spec lesen
 
-| Spec (v0.4) | Inhalt | Lesen |
+| Spec (v0.5) | Inhalt | Lesen |
 |---|---|---|
-| 06 *Pakete und Workspaces* | `manifest.yaml`, Typen, Versionen und Bereiche, Hubs, Resolver, Holen, Ausrollen, Arbeitspferde, `@Data/`, Rückfluss | vor jedem Paket |
-| 03 *Skills und Assistenten* | Frontmatter von `SKILL.md` und `ASSISTANT.md`, Auflösung, Zuordnung, Oberflächen | bei Skills, Assistenten, Oberflächen |
+| 06 *Pakete und Workspaces* | `manifest.yaml`, Typen, Versionen und Bereiche, Hubs, Resolver, Paket laden, Ausrollen, Distributionen, `@Data/`, Rückfluss | vor jedem Paket |
+| 07 *Arbeitspferde* | Typ `worker`, Hash-Datei, Installation je Version, Weiterleiter | bei Arbeitspferden und Skills, die ein Programm brauchen |
+| 03 *Skills und Assistenten* | Frontmatter von `SKILL.md` und `ASSISTANT.md`, Ausführungsmodell, Auflösung, Zuordnung, Oberflächen, `/aios-distribution` | bei Skills, Assistenten, Oberflächen |
 | 02 *Master-Kontext* | Klassen `@`, `@@`, `@!` für Wissen | bei Wissen |
 | 04 *Installation und Konfiguration* | CLI `aios`, `config.yaml`, Umgebungsvariablen | bei Befehlen und Tests |
-| 01 *Überblick* | Begriffe, Invarianten I1–I9, Abnahmetest | bei Begriffsfragen |
+| 01 *Überblick* | Begriffe, Invarianten I1–I11, Abnahmetest | bei Begriffsfragen |
 
 ## Begriffe
 
 - **Paket:** versionierte Einheit mit `manifest.yaml`, ein Git-Repo in einem Hub, Version = Tag `v<version>`.
 - **Element:** Skill, Assistent, Wissen oder Befehl in einem Paket.
-- **Modul:** ein Paket, nach dessen Holen AIOS etwas Neues kann (`kernel`, `app`, `assistant`, `skill` oder mit Skills, Assistenten, Befehlen). `knowledge`, `tutorial`, `distribution` ohne solche Inhalte sind keine Module.
-- **holen** (`aios --fetch`) gilt für Pakete, **ausrollen** (`aios --deploy`) für Elemente, **registrieren** für Skills; *installieren* nur für den Kernel.
+- **Modul:** ein Paket, nach dessen Holen AIOS etwas Neues kann (`kernel`, `app`, `assistant`, `skill`, `worker` oder mit Skills, Assistenten, Befehlen). `knowledge`, `tutorial`, `distribution` ohne solche Inhalte sind keine Module.
+- **Arbeitspferd:** ein Programm, das ausgeführt wird, auf dem Rechner wohnt und vor Ort gebaut wird; Paket `type: worker` (Praxis *Arbeitspferde*).
+- **Distribution:** optional ein Kernel und Pakete in exakten Versionen; wird installiert (Praxis *Kernel, Distributionen und Tutorials*).
+- **holen** (`aios --fetch`, für den User „Paket laden" mit setup der Arbeitspferde) gilt für Pakete, **ausrollen** (`aios --deploy`) für Elemente, **registrieren** für Skills; **installieren** für Kernel, Arbeitspferde und Distributionen.
 
 ## Regeln in Kürze
 
 | Thema | Regel |
 |---|---|
-| Name | `<typ>-<name>`, englisch, gleich dem Typ: `app-`, `assistant-`, `skill-`, `knowledge-`, `tutorial-`, `distribution-`; Element `<name>`; Kernel `aios`. Ausnahme in v0.4: `assistent-gaertner`, `assistent-astronom` |
+| Name | `<typ>-<name>`, englisch, gleich dem Typ: `app-`, `assistant-`, `skill-`, `knowledge-`, `tutorial-`, `distribution-`, `worker-`; Element `<name>`; Kernel `aios`. Bis v0.4: `assistent-gaertner`, `assistent-astronom` |
 | Manifest | Pflicht `name`, `version`, `type`, `description`, `requires.aios`; Elemente in `contents` |
 | Versionen | SemVer, Start `0.1.0`; Elemente in `skills/` und `assistants/` tragen die Paketversion, private Skills ihre eigene |
 | Tags | ein gepushter Tag wird nie bewegt; jede Änderung, auch am README, ist eine neue Version |

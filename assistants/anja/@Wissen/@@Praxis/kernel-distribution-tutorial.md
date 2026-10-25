@@ -1,6 +1,6 @@
 # Praxis — Kernel, Distributionen und Tutorials
 
-Quellen: Spec v0.4, 01 *Begriffe*; 04 (Installation); 06 *Pakete*, *`manifest.yaml`*, *Resolver*. AA-AIbex-AIOS, Memos 05, 06; V0.4, Memos 04, 07, 46, 61, 62, 75, 76; V0.5, Memo 08.
+Quellen: Spec v0.5, 01 *Begriffe*; 04 *`aios --install distribution-<name>`*; 06 *Pakete*, *`manifest.yaml`*, *Resolver*, *Distributionen*; 03 *Distributionen — `/aios-distribution`*. AA-AIbex-AIOS, Memos 05, 06; V0.4, Memos 04, 07, 46, 61, 62, 75, 76; V0.5, Memo 08.
 
 ## Kernel
 
@@ -15,28 +15,31 @@ Quellen: Spec v0.4, 01 *Begriffe*; 04 (Installation); 06 *Pakete*, *`manifest.ya
 
 ## Distribution
 
-Eine Distribution **listet nur andere Pakete mit Versionen auf**; sie ist kein Modul.
+Eine Distribution stellt eine **geprüfte Zusammenstellung** zusammen: optional einen Kernel und Pakete in exakten Versionen (Spec 06, *Distributionen*; V0.5, Memos 25–27, 34).
 
 ```yaml
-name: distribution-demo
-version: 0.1.0
+name: distribution-rothirsch
+version: 1.0.0
 type: distribution
-description: Demo-Ausstattung von AIOS mit Taschenrechner und Astronom
+description: Rothirsch — AIOS mit Video-Analyse und der Assistentin Anja
 requires:
-  aios: ">=0.4,<0.5"
+  aios: ">=0.5,<0.6"
+kernel: "==0.5.0"
 depends:
-  app-taschenrechner: "~=0.4.2"
-  assistent-astronom: "~=0.2.1"
-  knowledge-orion: "~=0.1.0"
+  skill-video-analyse: "==0.2.0"
+  assistant-anja: "==0.2.0"
 ```
 
 | # | Regel |
 |---|---|
-| D1 | Kein `contents`; alles steht in `depends`. Der Resolver holt die Pakete in dasselbe Projekt und rollt sie ganz aus |
-| D2 | Bereiche dürfen enger sein als sonst (`==`), weil eine Distribution eine geprüfte Zusammenstellung festlegt (Konvention von AIbex) |
-| D3 | Name `distribution-<name>` |
-
-**Lücke in Spec v0.4:** Sie sagt nicht ausdrücklich, wie eine Distribution in `packages:` und `lock.yaml` erscheint und was `--remove` mit ihren Paketen tut (nach den allgemeinen Regeln: entfernt, wenn kein anderes Paket sie verlangt). Sag das, wenn danach gefragt wird (V0.5, Memo 08, Wunsch).
+| D1 | Kein `contents`; alles steht in `depends`, Abhängigkeiten der Pakete (z. B. `worker-yt-dlp`) holt der Resolver |
+| D2 | **Exakte Versionen** (`==`) in `kernel:` und `depends`; neue Stände sind eine neue Version der Distribution, unabhängig von der Version des Kernels |
+| D3 | Name `distribution-<name>`, der Anzeigename steht in `description` |
+| D4 | `kernel:` ist optional; ohne ist die Distribution eine reine Sammlung, und `requires.aios` aller Pakete muss zum gebundenen Kernel passen. Höchstens eine Distribution mit `kernel:` je Vault |
+| D5 | Installieren und Aktualisieren: `aios --install distribution-<name> [<vault>] [--from <repo>]` — erst der Rechner (Kernel, Arbeitspferde), dann der Vault (binden, holen, registrieren); ein Plan, ein Ja |
+| D6 | Im Vault steht die Distribution in `packages:` der Vault-Root, ihre Pakete in `lock.yaml` mit `required_by`; entfernen mit `aios --fetch --remove distribution-<name>`, übersteuern nur mit `only` |
+| D7 | Zusammenstellen mit dem AIOS-Skill `/aios-distribution`: vom erprobten Stand eines Projekts aus, Prüfung mit dem Resolver, lokales Repo; er veröffentlicht nicht |
+| D8 | Probe: `aios --install distribution-<name> --from <repo> <leerer Vault>` in einem Test- oder Scratchpad-Ordner, nie im Vault des Users; vor der Veröffentlichung der Pakete über einen lokalen Hub (`file://`) |
 
 ## Tutorial
 
@@ -44,7 +47,7 @@ depends:
 |---|---|
 | U1 | `type: tutorial`; ohne Skills, Assistenten, Befehle ist es kein Modul und wirkt wie Wissen (`knowledge/`) |
 | U2 | Name `tutorial-<name>` |
-| U3 | Die Tutorials von v0.4 liegen im Kernel (`doc/tutorials/`), nicht als Pakete; es gibt noch kein Beispielpaket |
+| U3 | Die Tutorials von v0.4 und v0.5 liegen im Kernel (`doc/tutorials/`), nicht als Pakete; es gibt noch kein Beispielpaket |
 
 ## Vorlagen
 
