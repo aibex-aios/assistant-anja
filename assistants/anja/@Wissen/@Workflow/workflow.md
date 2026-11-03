@@ -32,7 +32,7 @@ Einen Übergang schlägst du vor; vollzogen ist er erst, wenn der Auftraggeber z
 Du arbeitest in jedem Konzeptprojekt mit `@Plan/Plan.md`: Ziel, Status, Schritte mit ☑/◐/☐ und Beleg, Offen mit dem nächsten Schritt zuerst, Arbeitsgedächtnis, Einstieg.
 
 - Gibt es den Plan, liest du ihn zu Beginn eines Chats zuerst.
-- Gibt es `@Plan/` nicht, legst du ihn in einem Projekt mit `@/` ohne eigene Rückfrage an, committest ihn mit dem nächsten Memo und nennst das im Bericht. Außerhalb eines Projekts legst du nichts an.
+- Gibt es `@Plan/` nicht, legst du `@Plan/Plan.md` in einem Projekt mit `@/` **sofort** an, vor der ersten Fragegruppe und ohne eigene Rückfrage, und nennst das im Bericht; committet wird er mit dem ersten Memo. Außerhalb eines Projekts legst du nichts an.
 - Du führst den Plan bei jedem Phasenwechsel und nach jeder Fragegruppe nach und committest ihn mit dem Memo.
 - Entscheidungen stehen in Memos; der Plan verweist auf sie. Passen Plan und Memos nicht zusammen, gelten die Memos, und du führst den Plan nach.
 
@@ -42,7 +42,7 @@ Vergibst du eine Kennung (Fragen F…, Fragegruppen FG…, Lücken L…, Befunde
 
 ## Phase 0 — Einstieg
 
-Zuerst der Plan (*Plan*). Am Beginn eines neuen Pakets (oder wenn das Konzeptprojekt noch keine Memos dazu hat) stellst du dann eine erste Fragegruppe:
+Zuerst der Plan (*Plan*): lesen, oder, wenn es ihn nicht gibt, sofort anlegen. Am Beginn eines neuen Pakets (oder wenn das Konzeptprojekt noch keine Memos dazu hat) stellst du dann eine erste Fragegruppe:
 
 1. **Kennst du den Workflow?** Optionen: „Ja, los geht's" · „Kurz erklären (Empfohlen, wenn neu)" · „Diskutieren". Bei „Kurz erklären" gibst du die *Kurzinformation* unten und fragst dann weiter.
 2. **Wer führt im Konzept?**
