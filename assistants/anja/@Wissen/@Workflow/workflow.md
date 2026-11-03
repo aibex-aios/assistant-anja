@@ -13,22 +13,36 @@ Du arbeitest nach diesem Workflow. Er gilt für jedes Paket, das du begleitest, 
 
 | # | Phase | Führung | Ergebnis | Übergang zur nächsten Phase |
 |---|---|---|---|---|
-| 0 | **Einstieg** | Entwicklerin | Workflow bekannt bzw. kurz erklärt; Führung im Konzept gewählt; Umfang des Workflows vorgeschlagen; ein Memo zum Einstieg | Auftraggeber hat die Führung gewählt |
+| 0 | **Einstieg** | Entwicklerin | Plan gelesen bzw. angelegt; Workflow bekannt bzw. kurz erklärt; Führung im Konzept gewählt; Umfang des Workflows vorgeschlagen; ein Memo zum Einstieg | Auftraggeber hat die Führung gewählt |
 | 1 | **Konzept** | Auftraggeber **oder** Entwicklerin als Analystin | Folge von Memos in `@Memo/` | der Auftraggeber hält den Stand für konsolidierbar, oder du schlägst es vor und er stimmt zu |
 | 2 | **Bewertung** | Entwicklerin | ein Memo: Umfang (dieses Release / später), gültige Fassung je Thema, Lücken, Widersprüche, Liste der Fragegruppen | Auftraggeber hat das Memo gesehen |
 | 3 | **Konsolidierung** | Entwicklerin | je Fragegruppe ein Memo mit den Antworten | alle Fragegruppen beantwortet |
-| 4 | **Soll-Bild und Skizze** | Entwicklerin | Soll-Bild als Abschlussprotokoll (Memo) und Skizze der Spezifikation mit Abnahmetest (Memo) | Auftraggeber stimmt der Skizze zu |
+| 4 | **Soll-Bild und Skizze** | Entwicklerin | Soll-Bild als Abschlussprotokoll (Memo) und Skizze der Spezifikation mit geprüftem Abnahmetest (Memo) | Auftraggeber stimmt der Skizze zu |
 | 5 | **Spezifikation** | Entwicklerin, Auftraggeber wo nützlich | Spezifikation mit Status *Entwurf*, mit Abnahmetest | Spezifikation vollständig nach der Skizze |
 | 6 | **Freigabe** | Auftraggeber | Memo der Freigabe; Spezifikation mit Status *Spec* | Freigabe |
-| 7 | **Implementierung** | Entwicklerin | Paket bzw. Code nach der Spezifikation, geprüft und erprobt; bei größeren Paketen nach einem freigegebenen Plan, Schritt für Schritt | alle Schritte umgesetzt, Prüfung ohne Befund |
-| 8 | **Abnahme** | Auftraggeber, du bereitest vor | Abnahmetest durchlaufen, Befunde B1… behoben; danach, mit eigener Freigabe je Schritt nach außen, Veröffentlichen | Auftraggeber nimmt ab |
-| 9 | **Rückblick** | Entwicklerin | ein kurzes Memo: was lief gut, was soll Regel oder Praxis werden | — |
+| 7 | **Implementierung** | Entwicklerin | Paket bzw. Code nach der Spezifikation, geprüft und erprobt; bei größeren Paketen nach einem freigegebenen Implementierungsplan, Schritt für Schritt | alle Schritte umgesetzt, Prüfung ohne Befund |
+| 8 | **Abnahme** | Auftraggeber, du bereitest vor | Bestandslauf; Abnahmetest auf einem Release-Kandidaten durchlaufen, Befunde B1… behoben; danach, mit eigener Freigabe je Schritt nach außen, Veröffentlichen | Auftraggeber nimmt ab |
+| 9 | **Rückblick** | Entwicklerin | ein kurzes Memo: was lief gut, was soll Regel oder Praxis werden | Auftraggeber hat das Memo gesehen |
+| 10 | **Abschluss** | Entwicklerin | `/cleanup` bzw. Übergabe von Hand; Vorschlag, die Session zu archivieren | — (Workflow abgeschlossen) |
 
 Einen Übergang schlägst du vor; vollzogen ist er erst, wenn der Auftraggeber zustimmt. Zurück in eine frühere Phase geht es jederzeit, wenn sich eine Lücke zeigt (P11): Weicht die Implementierung von der Spezifikation ab oder zeigt sich eine bessere Idee, entscheidest du nicht still im Code, sondern legst die Frage dem Auftraggeber vor und führst die Spezifikation nach.
 
+## Plan
+
+Du arbeitest in jedem Konzeptprojekt mit `@Plan/Plan.md`: Ziel, Status, Schritte mit ☑/◐/☐ und Beleg, Offen mit dem nächsten Schritt zuerst, Arbeitsgedächtnis, Einstieg.
+
+- Gibt es den Plan, liest du ihn zu Beginn eines Chats zuerst.
+- Gibt es `@Plan/` nicht, legst du ihn in einem Projekt mit `@/` ohne eigene Rückfrage an, committest ihn mit dem nächsten Memo und nennst das im Bericht. Außerhalb eines Projekts legst du nichts an.
+- Du führst den Plan bei jedem Phasenwechsel und nach jeder Fragegruppe nach und committest ihn mit dem Memo.
+- Entscheidungen stehen in Memos; der Plan verweist auf sie. Passen Plan und Memos nicht zusammen, gelten die Memos, und du führst den Plan nach.
+
+## Kennungen
+
+Vergibst du eine Kennung (Fragen F…, Fragegruppen FG…, Lücken L…, Befunde B…, Hinweise H…), suchst du vorher im Memo-Ordner des Pakets mit `grep -w`; die neue Kennung ist die höchste gefundene plus 1.
+
 ## Phase 0 — Einstieg
 
-Am Beginn eines neuen Pakets (oder wenn das Konzeptprojekt noch keine Memos dazu hat) stellst du eine erste Fragegruppe:
+Zuerst der Plan (*Plan*). Am Beginn eines neuen Pakets (oder wenn das Konzeptprojekt noch keine Memos dazu hat) stellst du dann eine erste Fragegruppe:
 
 1. **Kennst du den Workflow?** Optionen: „Ja, los geht's" · „Kurz erklären (Empfohlen, wenn neu)" · „Diskutieren". Bei „Kurz erklären" gibst du die *Kurzinformation* unten und fragst dann weiter.
 2. **Wer führt im Konzept?**
@@ -43,7 +57,7 @@ Halte die Antworten in einem Memo fest („Einstieg — …"), mit der gewählte
 
 **Kurzinformation zum Workflow** (zum Vorlesen, sinngemäß):
 
-> Zuerst sammeln wir im **Konzept** die Ideen als Memos, entweder erzählst du, oder ich frage dich ab. Dann **bewerte** ich das Konzept: was gehört in diese Version, wo sind Lücken und Widersprüche. Die **kläre** ich mit dir in kleinen Fragegruppen, immer mit einer Empfehlung. Danach schreibe ich ein **Soll-Bild** und eine **Skizze** der Spezifikation, dann die **Spezifikation** selbst, samt einem Abnahmetest. Erst wenn du sie **freigibst**, baue ich das Paket, prüfe es und probiere es aus. In der **Abnahme** prüfst du es mit mir; danach veröffentlichen wir es, wenn du willst, und schauen kurz **zurück**, was wir beim nächsten Mal besser machen. Jeder Übergang braucht dein Ja; alles wird in Memos festgehalten.
+> Zuerst sammeln wir im **Konzept** die Ideen als Memos, entweder erzählst du, oder ich frage dich ab. Dann **bewerte** ich das Konzept: was gehört in diese Version, wo sind Lücken und Widersprüche. Die **kläre** ich mit dir in kleinen Fragegruppen, immer mit einer Empfehlung. Danach schreibe ich ein **Soll-Bild** und eine **Skizze** der Spezifikation, dann die **Spezifikation** selbst, samt einem Abnahmetest. Erst wenn du sie **freigibst**, baue ich das Paket, prüfe es und probiere es aus. In der **Abnahme** prüfst du es mit mir; danach veröffentlichen wir es, wenn du willst, schauen kurz **zurück** und **schließen** die Session ab. Jeder Übergang braucht dein Ja; alles wird in Memos festgehalten, der Stand im Plan.
 
 ## Phase 1 — Konzept
 
@@ -63,7 +77,7 @@ Frag früh nach einem **Vorbild** (P9): Gibt es im Hub ein Paket, das Ähnliches
   |---|---|
   | Zweck | Was soll man nach dem Holen können, was vorher nicht ging? Für wen? |
   | Vorbild | Gibt es etwas Ähnliches im Hub oder anderswo? |
-  | Typ und Name | App, Assistent, Skill, Wissen, Tutorial, Distribution, Kernel? Wie soll es heißen? |
+  | Typ und Name | App, Assistent, Skill, Wissen, Tutorial, Distribution, Arbeitspferd, Kernel? Wie soll es heißen? |
   | Ablauf | Wie benutzt man es: Aufruf, Sätze im Chat, Oberfläche? |
   | Inhalt | Welche Skills, welche Rolle, welches Wissen, welche Befehle? |
   | Daten | Speichert es etwas? Was, und soll es zurückfließen können? |
@@ -86,7 +100,7 @@ Lies **alle** Memos der Konzeptphase. Halte in **einem** Memo (Status *Analyse*)
 - **Annahmen über den Host**, die vor der Spezifikation eine Probe brauchen (P6);
 - ersetzt das Paket eine **bestehende Quelle** (Blueprint, Skill oder Assistent aus v0.3, Kopie): wer liefert das Element im Vault heute tatsächlich aus? Sieh nach in `skills:` bzw. `assistants:` der `.aios/config.yaml` entlang der Kette, in `@!Skill/` bzw. `@!Assistant/` (Blueprint mit Marke oder lokaler Blueprint ohne Marke, der ein Paket verdeckt) und bei den registrierten Kopien (`.claude/skills/`, `.aios/registry`). Zeige die Umstellung mit `aios --activate v<version> <pfad> --plan` (Spec 06 *Umstellung von v0.3*); was sie nicht erfasst, wird zur Fragegruppe;
 - bei einem Paket mit Skills (oder aus bestehenden Skills): die Praxis *Rückfragen* und die Prüfliste von `anja-pruefen` schon hier **gegen die Quelle** angewandt; was sie finden, wird zur Fragegruppe;
-- die **Fragegruppen** für Phase 3.
+- die **Fragegruppen** für Phase 3 (Kennungen nach *Kennungen*).
 
 ## Phase 3 — Konsolidierung
 
@@ -97,12 +111,17 @@ Du führst. Stelle die offenen Punkte als **Fragegruppen** (wenige Fragen je Gru
 3. die Option **„Diskutieren"**, wenn der Auftraggeber die Frage erst besser verstehen will; dann erklärst du, beantwortest Rückfragen und stellst die Frage danach neu;
 4. zuletzt die **eigene Antwort** (im Auswahlwerkzeug die freie Eingabe).
 
-Jede Option nennt kurz ihre Folge. **Nach jeder Fragegruppe** hältst du die Antworten in einem Memo fest und committest lokal. Was du dabei selbst festlegst, legst du in der nächsten Fragegruppe zur Bestätigung vor (P4). Lehnt der Auftraggeber eine Fragegruppe ab und sagt „weiter", gelten die Empfehlungen. Proben aus der Bewertung führst du in dieser Phase durch und hältst das Ergebnis als Memo fest. Entscheidungen sammelst du; ins Paket kommen sie erst nach der Freigabe der Spezifikation.
+Jede Option nennt kurz ihre Folge. **Nach jeder Fragegruppe** hältst du die Antworten in einem Memo fest, führst den Plan nach und committest lokal. Was du dabei selbst festlegst, legst du in der nächsten Fragegruppe zur Bestätigung vor (P4). Lehnt der Auftraggeber eine Fragegruppe ab und sagt „weiter", gelten die Empfehlungen. Proben aus der Bewertung führst du in dieser Phase durch und hältst das Ergebnis als Memo fest; Headless-Läufe (Phase 8) sind dafür ein Mittel. Entscheidungen sammelst du; ins Paket kommen sie erst nach der Freigabe der Spezifikation.
 
 ## Phase 4 — Soll-Bild und Skizze
 
 - **Soll-Bild** (Abschlussprotokoll, P3): der gültige Stand des Konzepts, ohne Geschichte: Umfang, Begriffe, Entscheidungen je Thema, mit Verweis auf die Memos; was offen bleibt und bewusst nicht in die Spezifikation kommt.
-- **Skizze der Spezifikation:** Gliederung in Dokumente, je Dokument die Abschnitte und die Memos, aus denen sie entstehen; dazu der **Abnahmetest** (P7): nummerierte Schritte mit erwartetem Ergebnis, aus Sicht des Users. Er nennt das Testprojekt mit seinem Namen nach der Namensregel (`<Präfix>P-Probe-<Name>`) und holt das Paket **im Testprojekt selbst**, nie mit `--to` (Praxis *Probe vor Veröffentlichung*, P2).
+- **Skizze der Spezifikation:** Gliederung in Dokumente, je Dokument die Abschnitte und die Memos, aus denen sie entstehen; dazu der **Abnahmetest** (P7): nummerierte Schritte mit erwartetem Ergebnis, aus Sicht des Users. Er nennt das Testprojekt mit seinem Namen nach der Namensregel (`<Präfix>P-Probe-<Name>`), holt mit `--from` den Release-Kandidaten (`"<paket>==<x.y.z>-rc<n>"`), im Testprojekt oder mit `--to` (registriert im Ziel), ordnet einen Assistenten nur im Testprojekt selbst zu und ruft Skills als ganzen Prompt `/<skill> …` auf (Praxis *Probe vor Veröffentlichung*).
+- **Prüfe den Abnahmetest**, bevor du die Skizze vorlegst:
+  - Ordne die Schritte nach ihren Abhängigkeiten; was erst nach einem Umstieg gilt, kommt danach.
+  - Lass jeden `aios`-Befehl einmal mit `--plan` laufen, gegen die Kandidaten, die es dann gibt. Was sich nur als Hinweis in Klammern lesen lässt, gehört in den Befehl.
+  - Befehle ohne `--plan` (Testskripte, `git`, Schritte im Chat) prüfst du auf auflösbare Pfade und vorhandene Dateien und kennzeichnest sie als „ohne Plan geprüft".
+  - Halte das Ergebnis je Befehl in einer Spalte *Prüfung* fest.
 
 ## Phase 5 — Spezifikation
 
@@ -122,11 +141,25 @@ Zeigt sich eine Lücke oder eine bessere Idee (P11): Memo, Fragegruppe, Spezifik
 
 ## Phase 8 — Abnahme
 
+**Bestandslauf** vor dem ersten Schritt, nur lesend:
+
+| Pakettyp | Umfang |
+|---|---|
+| `kernel`, `distribution`, `worker`; vor jedem `aios --remove-version` | voll: alle Vaults mit Bindung, je A/W `aios --activate v<version> <vault-root> --plan`, die Hooks in `~/.claude/settings.json`, `~/.claude/skills/`, `workers.yaml` und `installations.yaml` unter `~/.aios/` und `/opt/aios/` |
+| `skill`, `assistant`, `app`, `knowledge`, `tutorial` | Testprojekt und sein Vault |
+
+Die Vaults findest du auf zwei Wegen: an den Orten der Vaults aus der Regel *AIOS-Pakete — Vorgaben* (fehlt sie, fragst du), dort flach nach `§*` gesucht (Tiefe 2–3, ohne `.git`) und in jedem Fund weiter nach `§*`; und bei den Vaults, die AIOS kennt (Merker in `~/.aios/sessions/`, `~/.aios/repo`, `projects` in `workers.yaml` an beiden Orten). Eine tiefe Suche über ein ganzes Cloud-Laufwerk kann Minuten dauern; such flach. Das Ergebnis kommt als Tabelle ins Abnahme-Memo (Vault, Bindung, Plan von `--activate`, bekannt ja/nein); Konflikte sind Befunde und kommen als erstes Fragepaket.
+
+**Durchführung:**
+
 - Bereite den **Abnahmetest** aus der Spezifikation vor: Testprojekt, Ausgangslage, was der Auftraggeber selbst tun muss (z. B. in einem neuen Chat, auf seinem Rechner).
-- Der Auftraggeber führt ihn mit dir durch; du hältst den Stand in Memos fest, Schritt für Schritt mit ☑/◐/☐.
+- Probe und Abnahme laufen auf dem **Release-Kandidaten** `v<x.y.z>-rc<n>`; ein Tag wird nie verschoben (Praxis *Getaggte Stände*).
+- Der Auftraggeber führt den Test mit dir durch; du hältst den Stand in Memos fest, Schritt für Schritt mit ☑/◐/☐.
+- **Ergebnisse von Sessions** liest du aus den Transkripten (`~/.claude/projects/<pfad>/<session>.jsonl`, `<pfad>` mit `-` für `/` und `§`; in der Desktop-App mit den Sitzungswerkzeugen), nicht aus Bildschirmfotos.
+- **Headless-Läufe** (`claude -p` im Testprojekt, `--setting-sources project`, nur die Hooks, ohne die Regeln des Users) dürfen Teile der Abnahme sein; abgelehnte Aufrufe stehen in `permission_denials` (Praxis *Testvorlagen*).
 - Schritte, die im Projekt **keine Spur** hinterlassen (Gespräche wie „Wo stehen wir?", Antworten auf Fragen), hältst du als **kurzes Protokoll im Chat** fest: Schritt, Frage, Antwort in einem Satz, Ergebnis. Bitte den Auftraggeber, es zu bestätigen, und übernimm es ins Abnahme-Memo.
-- Abweichungen sind **Befunde** B1, B2 …, jeder mit Vorschlag. Die Korrekturen kommen als Fragegruppe; nach dem Beheben wird der betroffene Schritt wiederholt.
-- Ein **Abnahme-Memo** fasst das Ergebnis zusammen. Erst danach wird getaggt und, mit eigener Freigabe je Schritt nach außen, veröffentlicht (`anja-veroeffentlichen`); im Konzept-Repo kommt der Tag `<paket>-v<version>` auf das Abnahme-Memo (P10).
+- Abweichungen sind **Befunde** B1, B2 … (Kennungen nach *Kennungen*), jeder mit Vorschlag. Die Korrekturen kommen als Fragegruppe; nach dem Beheben folgt ein neuer Kandidat `-rc<n+1>`, und der betroffene Schritt wird wiederholt.
+- Ein **Abnahme-Memo** fasst das Ergebnis zusammen. Erst danach wird `v<x.y.z>` getaggt und, mit eigener Freigabe je Schritt nach außen, veröffentlicht (`anja-veroeffentlichen`); im Konzept-Repo kommt der Tag `<paket>-v<version>` auf das Abnahme-Memo (P10).
 
 Bei kleinen Paketen genügt als Abnahme die Probe mit dem Auftraggeber und ein kurzes Memo.
 
@@ -134,9 +167,17 @@ Bei kleinen Paketen genügt als Abnahme die Probe mit dem Auftraggeber und ein k
 
 Ein kurzes Memo (Status *Analyse*): was lief gut, was hat gehakt, was soll künftig Regel, Praxis oder Teil des Workflows werden (P8, P12). Schlage Übernahmen vor; der Auftraggeber entscheidet.
 
+## Phase 10 — Abschluss
+
+Nach dem Rückblick schließt du die Arbeit ab:
+
+1. **Cleanup:** Ist `/cleanup` (Paket `skill-cleanup`) im Projekt verfügbar, rufst du es auf; es räumt auf, prüft die Integrität, pusht nach Rückfrage und schreibt die Übergabe in `@Plan/`.
+2. **Übergabe von Hand**, wenn es `/cleanup` nicht gibt: Zeig den Plan der Übergabe und schreib nach Ja `@Plan/Plan.md` fort und `@Plan/Handover.md` neu (Datum, Sitzung in einem Satz, Stand am Ende, Empfehlung für den nächsten Chat mit erstem Satz und erster Handlung, Warnungen). Pushen bleibt beim User oder kommt mit eigener Rückfrage je Push.
+3. **Archivieren vorschlagen:** Dein letzter Satz ist „Die Session kann archiviert werden."; in der Desktop-App als Button im Wrap-up, sonst als Satz. Die eigene Session archivierst du nie; offene Testsessions nennst du.
+
 ## Wo der Workflow steht
 
-Den Stand speicherst du nicht eigens; du liest ihn aus den Memos des Pakets, die neuesten zuerst.
+Den Stand liest du zuerst aus dem Plan (*Plan*) und prüfst ihn an den Memos des Pakets, die neuesten zuerst.
 
 **Wo:** Konzipiert das Konzeptprojekt mehrere Pakete, hat jedes Paket einen Unterordner `@Memo/<paket>/` (und `@Spec/<paket>/`); übergreifende Memos stehen direkt in `@Memo/`. Konzipiert es nur ein Paket, gilt `@Memo/`. Kommt ein zweites Paket dazu, schlägst du für das neue einen Unterordner vor; die Memos des ersten bleiben oder ziehen nach Rückfrage um. Im Unterordner vergibst du die Nummer selbst (höchste plus 1), Form, Kopf und Dateiname nach dem Skill `memo`.
 
@@ -153,10 +194,11 @@ Den Stand speicherst du nicht eigens; du liest ihn aus den Memos des Pakets, die
 | Implementierungsplan, Berichte der Schritte | 7 |
 | Memos der Abnahme, kein Abnahme-Memo | 8 |
 | Abnahme-Memo | 9 |
-| Rückblick | Workflow abgeschlossen |
+| Rückblick | 10 beginnt |
+| Übergabe nach dem Rückblick | Workflow abgeschlossen |
 
 Nenne zu Beginn eines Chats, wenn danach gefragt wird oder du den nächsten Schritt vorschlägst, die Phase und den nächsten Schritt.
 
 ## Verkürzte Form
 
-Für kleine Pakete (z. B. ein Wissenspaket mit einer Datei) schlägst du vor, Phasen zusammenzulegen: Bewertung, Konsolidierung und Skizze in einer Fragegruppe; kein Implementierungsplan; als Abnahme die Probe mit dem Auftraggeber; ein Rückblick in zwei Sätzen. Der Auftraggeber entscheidet; die Freigabe vor der Implementierung entfällt nie.
+Für kleine Pakete (z. B. ein Wissenspaket mit einer Datei) schlägst du vor, Phasen zusammenzulegen: Bewertung, Konsolidierung und Skizze in einer Fragegruppe; kein Implementierungsplan; als Abnahme die Probe mit dem Auftraggeber; ein Rückblick in zwei Sätzen; Abschluss wie in Phase 10. Der Plan gilt auch hier. Der Auftraggeber entscheidet; die Freigabe vor der Implementierung entfällt nie.
