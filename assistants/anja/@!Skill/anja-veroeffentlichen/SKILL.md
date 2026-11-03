@@ -1,6 +1,6 @@
 ---
 name: anja-veroeffentlichen
-version: 0.1.1
+version: 0.2.0
 description: >
   Veröffentlicht ein geprüftes und erprobtes Paket von AIbex AIOS in einem Hub auf GitHub,
   Schritt für Schritt mit eigener Rückfrage: Repo anlegen, Zweig und Tag pushen, Topic,
@@ -12,21 +12,22 @@ description: >
 
 Ein Skill der Assistentin Anja. **Jeder Schritt wirkt nach außen** und braucht eine eigene Rückfrage, auch wenn der User „veröffentliche" gesagt hat. Lies zuerst `@@Praxis/veroeffentlichen.md` und `@@Praxis/getaggte-staende.md`.
 
-**Arbeitsweise:** Arbeite mit absoluten Pfaden und `git -C <repo>`, wechsle nie mit `cd`.
+**Arbeitsweise:** Arbeite mit absoluten Pfaden und `git -C <repo>`, wechsle nie mit `cd`. Rufe `aios` über den Weiterleiter auf: mit dem absoluten Pfad aus dem Block `<aios-kernel-skills>` deines Master-Kontexts, als einzelnen Befehl ohne `cd`, `;`, `&&`, `|` oder Umleitung.
 
 ## 1. Voraussetzungen
 
 Prüfe und berichte, bevor du etwas vorschlägst:
 
 - `/anja-pruefen` ohne offene Befunde; Arbeitsbaum committet.
-- Probe bestanden (`@@Praxis/probe-vor-veroeffentlichung.md`) und, nach deinem Workflow, die Abnahme (Phase 8) mit Abnahme-Memo; fehlt etwas, sag das und empfiehl es.
-- Lokaler Tag `v<version>` gleich `version` im Manifest und auf dem letzten Commit; sonst Tag anlegen bzw. nachziehen (nur solange er nicht gepusht ist).
+- Probe und, nach deinem Workflow, die Abnahme (Phase 8) auf einem Release-Kandidaten bestanden, mit Abnahme-Memo (`@@Praxis/probe-vor-veroeffentlichung.md`); fehlt etwas, sag das und empfiehl es.
+- Lokaler Tag `v<version>` gleich `version` im Manifest und auf dem letzten Commit; sonst Tag anlegen. Einen vorhandenen Tag verschiebst du nie (`@@Praxis/getaggte-staende.md`, T4); passt er nicht, ist eine neue Version fällig.
 - `gh auth status` angemeldet; Schreibrecht im Ziel-Hub (`gh api orgs/<owner>` bzw. `gh api repos/<owner>/<paket>` mit `permissions.push`).
 - Hub, Owner, Sichtbarkeit und Lizenz aus der Regel *AIOS-Pakete — Vorgaben*; fehlt etwas, frage und biete an, die Regel zu ergänzen.
+- Bei `type: kernel`: Begleitpakete, die die neue Version braucht (deren `requires.aios` erst zu ihr passt), nennst du im Plan zuerst; sie werden vor oder mit dem Kernel veröffentlicht (`@@Praxis/veroeffentlichen.md`, V3).
 
 ## 2. Plan
 
-Zeige alle Schritte auf einmal als nummerierte Liste mit den Befehlen. Führe sie dann **einzeln** aus, jeden nach eigenem Ja:
+Zeige alle Schritte auf einmal als nummerierte Liste mit den Befehlen. Führe sie dann **einzeln** aus, jeden nach eigenem Ja. **Vor jedem Push** (Schritte 2, 3, 6, 8) zeigst du die Commits, die hinausgehen (`git -C <repo> log origin/<zweig>..<zweig>`), und nennst jeden, den du nicht selbst in dieser Session gemacht hast, mit einer eigenen Frage:
 
 | # | Schritt | Befehl |
 |---|---|---|
@@ -36,7 +37,7 @@ Zeige alle Schritte auf einmal als nummerierte Liste mit den Befehlen. Führe si
 | 4 | Topic (beim Kernel `aios-core`) | `gh repo edit <owner>/<paket> --add-topic aios-package` |
 | 5 | Beschreibung | `gh repo edit <owner>/<paket> --description "<description>"` |
 | 6 | Index, falls der Hub `aios-index` hat und das Paket neu ist oder sich `description` geändert hat | Klon von `<owner>/aios-index`, Eintrag in `index.yaml`, Commit, Push |
-| 7 | Probe gegen den Hub in einem frischen Testprojekt | `aios --library <paket>`, im Testprojekt selbst `aios --fetch <paket>` (nie mit `--to`) |
+| 7 | Probe gegen den Hub in einem frischen Testprojekt | `aios --library <paket>`, dann `aios --fetch <paket> --to <testprojekt>` oder im Testprojekt selbst |
 | 8 | Tag im Konzept-Repo auf dem Abnahme-Memo (ohne Abnahme auf dem Memo der Veröffentlichung), annotiert mit Verweis auf den Commit im Paket-Repo; pushen | `git -C <konzept> tag -a <paket>-v<version> -m "…"`, `git -C <konzept> push origin <tag>` |
 
 Bei einer **neuen Version** eines schon veröffentlichten Pakets entfallen 1 und 4.
