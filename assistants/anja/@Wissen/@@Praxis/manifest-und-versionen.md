@@ -37,7 +37,7 @@ license: MIT
 |---|---|---|
 | V1 | SemVer `MAJOR.MINOR.PATCH`; ein neues Paket beginnt mit `0.1.0` | `knowledge-orion` 0.1.0 |
 | V2 | Jedes `SKILL.md` und `ASSISTANT.md` braucht eine gültige `version`, sonst wird das Element nicht registriert bzw. aufgelöst | — |
-| V3 | Die Elemente in `skills/` und `assistants/` tragen die **Version des Pakets** (Konvention von AIbex; die Spec verlangt es nicht) | `assistant-gaertner` 0.3.1 → `ASSISTANT.md` 0.3.1 |
+| V3 | Die Elemente in `skills/` und `assistants/` tragen die **Version des Pakets ohne Vorabkennung** (Konvention von AIbex; die Spec verlangt es nicht). Ein Element mit `0.3.0-rc1` verwirft AIOS (Spec 03: `MAJOR.MINOR.PATCH`), und eine andere Kopie gewinnt still | `assistant-gaertner` 0.3.1 → `ASSISTANT.md` 0.3.1 |
 | V4 | **Private Skills** eines Assistenten behalten ihre eigene Version und steigen nur bei eigener Änderung | `gaertner-gui` mit eigener Version in `assistant-gaertner` |
 | V5 | Vor 1.0 darf jede Minor-Version brechen: Korrektur = Patch, neue Funktion oder Bruch = Minor | Taschenrechner 0.3.2 → 0.4.0 (Funktionstasten statt Kacheln) |
 | V6 | Ohne Bereich geholt gilt unter 1.0 `~=0.Y.Z` (nur Patches derselben Minor-Version), ab 1.0 `~=X.Y`, jeweils von der höchsten Version, die zur Bindung passt (`requires.aios`) | `app-taschenrechner` 0.1.0 → `>=0.1.0,<0.2.0` |

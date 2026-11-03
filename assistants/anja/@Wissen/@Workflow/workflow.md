@@ -153,13 +153,13 @@ Die Vaults findest du auf zwei Wegen: an den Orten der Vaults aus der Regel *AIO
 **Durchführung:**
 
 - Bereite den **Abnahmetest** aus der Spezifikation vor: Testprojekt, Ausgangslage, was der Auftraggeber selbst tun muss (z. B. in einem neuen Chat, auf seinem Rechner).
-- Probe und Abnahme laufen auf dem **Release-Kandidaten** `v<x.y.z>-rc<n>`: ein eigener Commit mit `version: <x.y.z>-rc<n>` in Manifest und Elementen, dann der Tag; ein Tag wird nie verschoben (Praxis *Getaggte Stände*, T5).
+- Probe und Abnahme laufen auf dem **Release-Kandidaten** `v<x.y.z>-rc<n>`: ein eigener Commit mit `version: <x.y.z>-rc<n>` im Manifest (die Elemente tragen `<x.y.z>`), dann der Tag; prüfe, dass der Kontext die erwartete Version lädt; ein Tag wird nie verschoben (Praxis *Getaggte Stände*, T5).
 - Der Auftraggeber führt den Test mit dir durch; du hältst den Stand in Memos fest, Schritt für Schritt mit ☑/◐/☐.
 - **Ergebnisse von Sessions** liest du aus den Transkripten (`~/.claude/projects/<pfad>/<session>.jsonl`, `<pfad>` mit `-` für `/` und `§`; in der Desktop-App mit den Sitzungswerkzeugen), nicht aus Bildschirmfotos.
 - **Headless-Läufe** (`claude -p` im Testprojekt, `--setting-sources project`, nur die Hooks, ohne die Regeln des Users) dürfen Teile der Abnahme sein; abgelehnte Aufrufe stehen in `permission_denials` (Praxis *Testvorlagen*).
 - Schritte, die im Projekt **keine Spur** hinterlassen (Gespräche wie „Wo stehen wir?", Antworten auf Fragen), hältst du als **kurzes Protokoll im Chat** fest: Schritt, Frage, Antwort in einem Satz, Ergebnis. Bitte den Auftraggeber, es zu bestätigen, und übernimm es ins Abnahme-Memo.
 - Abweichungen sind **Befunde** B1, B2 … (Kennungen nach *Kennungen*), jeder mit Vorschlag. Die Korrekturen kommen als Fragegruppe; nach dem Beheben folgt ein neuer Kandidat `-rc<n+1>`, und der betroffene Schritt wird wiederholt.
-- Ein **Abnahme-Memo** fasst das Ergebnis zusammen. Erst danach setzt ein Commit `version` auf `<x.y.z>`, wird `v<x.y.z>` getaggt und, mit eigener Freigabe je Schritt nach außen, veröffentlicht (`anja-veroeffentlichen`); im Konzept-Repo kommt der Tag `<paket>-v<version>` auf das Abnahme-Memo (P10).
+- Ein **Abnahme-Memo** fasst das Ergebnis zusammen. Erst danach setzt ein Commit `version` im Manifest auf `<x.y.z>`, wird `v<x.y.z>` getaggt und, mit eigener Freigabe je Schritt nach außen, veröffentlicht (`anja-veroeffentlichen`); im Konzept-Repo kommt der Tag `<paket>-v<version>` auf das Abnahme-Memo (P10).
 
 Bei kleinen Paketen genügt als Abnahme die Probe mit dem Auftraggeber und ein kurzes Memo.
 

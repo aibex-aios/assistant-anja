@@ -4,15 +4,15 @@ Quellen: Spec v0.6.1, 03 *Registrieren* (Wirksamkeit), *Wechsel*; 05 *Namensrege
 
 | # | Schritt | Wie |
 |---|---|---|
-| P1 | Lokal committen, `version` in Manifest und Elementen auf `<x.y.z>-rc<n>` setzen, committen und den **Release-Kandidaten** taggen; ohne Tag holt AIOS nichts, auch nicht mit `--from`, und Tag und `version` müssen gleich sein (Praxis *Getaggte Stände*, T5) | `version: 0.1.0-rc1`, `git -C <repo> tag v0.1.0-rc1` |
+| P1 | Lokal committen, `version` im **Manifest** auf `<x.y.z>-rc<n>` setzen (Elemente bleiben `<x.y.z>`), committen und den **Release-Kandidaten** taggen; ohne Tag holt AIOS nichts, auch nicht mit `--from`, und Tag und `version` im Manifest müssen gleich sein (Praxis *Getaggte Stände*, T5) | `version: 0.1.0-rc1`, `git -C <repo> tag v0.1.0-rc1` |
 | P2 | Ein **leeres Testprojekt** `<Präfix>P-Probe-<Name>` anlegen, z. B. `MSFP-Probe-Skill-5-8-Zusammenfassung` unter `MSF-Fünf-Acht-Zusammenfassung`, und den Kandidaten holen: im Testprojekt oder mit `--to <testprojekt>` | `aios --init <testprojekt>`, dann `aios --fetch "<paket>==0.1.0-rc1" --from <pfad-zum-repo> --to <testprojekt>` |
 | P3 | Meldungen der Prüfung beim Holen beachten: Namen aus `contents`, gültige `version` je Skill, `gui` in `skills`, keine doppelten Elementnamen | Ausgabe von `aios --fetch` |
 | P4 | **Neuen Chat** im Testprojekt öffnen; Skills wirken erst ab dem nächsten Chat | — |
-| P5 | Kontext prüfen: Assistent aufgelöst, Wissen geladen bzw. im Inhaltsverzeichnis, keine Verdeckung | `/aios-context`, `aios --context --assistant <name> --load <testprojekt>` |
+| P5 | Kontext prüfen: Assistent aufgelöst **in der erwarteten Version** (`version=` in `AIOS-ASSISTANT-LOAD`), Wissen geladen bzw. im Inhaltsverzeichnis, keine Verdeckung. Eine verworfene Kopie (ungültige Version, falscher Name) wird still von der nächsten gültigen verdeckt; `/aios-context` nennt das Problem | `/aios-context`, `aios --context --assistant <name> --load <testprojekt>` |
 | P6 | Assistent zuordnen und ausprobieren: Prefix, Handwerk, **Grenzen** (eine Aufgabe außerhalb des Bereichs stellen); Skills als **ganzen Prompt** aufrufen | `/aios-assistant <Name>` im Testprojekt; `/<skill> …` |
 | P7 | Oberfläche in der eigenen **und** in einer frischen Session prüfen; jeden Ausweg im Chat einmal benutzen | `/gui` bzw. `/<name>-gui` |
 | P8 | **Live-Probe** mit einem kleinen Modell (z. B. haiku) oder als Headless-Lauf ohne die Regeln des Users (Praxis *Testvorlagen*) | `claude -p` im Testprojekt |
-| P9 | Korrigieren, `version` auf `-rc<n+1>`, committen, neuen Kandidaten taggen, im Testprojekt neu holen (Praxis *Getaggte Stände*) | `aios --fetch "<paket>==0.1.0-rc2" --from <repo> --to <testprojekt>` |
+| P9 | Korrigieren, `version` im Manifest auf `-rc<n+1>`, committen, neuen Kandidaten taggen, im Testprojekt neu holen (Praxis *Getaggte Stände*) | `aios --fetch "<paket>==0.1.0-rc2" --from <repo> --to <testprojekt>` |
 
 ## Zu beachten
 
