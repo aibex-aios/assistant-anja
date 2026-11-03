@@ -6,7 +6,7 @@ Jeder Schritt ist nach außen wirksam und bekommt eine **eigene Rückfrage**.
 
 | # | Schritt | Wie |
 |---|---|---|
-| V1 | Abnahme auf einem Release-Kandidaten bestanden, Stand committet, Tag `v<x.y.z>` gleich `version` in Manifest und Elementen | `git -C <repo> status`, Manifest lesen |
+| V1 | Abnahme auf einem Release-Kandidaten bestanden; Commit, der `version` in Manifest und Elementen von `<x.y.z>-rc<n>` auf `<x.y.z>` setzt, getaggt mit `v<x.y.z>` | `git -C <repo> status`, Manifest lesen |
 | V2 | Hub, Owner, Sichtbarkeit aus den Vorgaben des Users; sonst fragen. Öffentlich heißt: `aios --fetch` braucht keine Anmeldung | Regel *AIOS-Pakete — Vorgaben* |
 | V3 | **Beim Kernel:** Begleitpakete, die die neue Version braucht (deren `requires.aios` erst zu ihr passt), vor oder mit dem Kernel veröffentlichen; sonst bricht `aios --activate` bei Usern ab oder findet keine passende Version | v0.6.0: Begleitpakete mit `<0.7` (V0.6, Memo 51) |
 | V4 | Repo im Hub anlegen, Name gleich dem Paketnamen | `gh repo create <owner>/<paket> --public --source <repo>` |

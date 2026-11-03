@@ -20,7 +20,7 @@ Prüfe und berichte, bevor du etwas vorschlägst:
 
 - `/anja-pruefen` ohne offene Befunde; Arbeitsbaum committet.
 - Probe und, nach deinem Workflow, die Abnahme (Phase 8) auf einem Release-Kandidaten bestanden, mit Abnahme-Memo (`@@Praxis/probe-vor-veroeffentlichung.md`); fehlt etwas, sag das und empfiehl es.
-- Lokaler Tag `v<version>` gleich `version` im Manifest und auf dem letzten Commit; sonst Tag anlegen. Einen vorhandenen Tag verschiebst du nie (`@@Praxis/getaggte-staende.md`, T4); passt er nicht, ist eine neue Version fällig.
+- Lokaler Tag `v<version>` gleich `version` im Manifest und auf dem letzten Commit; nach einer Abnahme auf einem Kandidaten setzt ein eigener Commit `version` in Manifest und Elementen von `<x.y.z>-rc<n>` auf `<x.y.z>`, dann Tag anlegen (Plan, Rückfrage). Einen vorhandenen Tag verschiebst du nie (`@@Praxis/getaggte-staende.md`, T4); passt er nicht, ist eine neue Version fällig.
 - `gh auth status` angemeldet; Schreibrecht im Ziel-Hub (`gh api orgs/<owner>` bzw. `gh api repos/<owner>/<paket>` mit `permissions.push`).
 - Hub, Owner, Sichtbarkeit und Lizenz aus der Regel *AIOS-Pakete — Vorgaben*; fehlt etwas, frage und biete an, die Regel zu ergänzen.
 - Bei `type: kernel`: Begleitpakete, die die neue Version braucht (deren `requires.aios` erst zu ihr passt), nennst du im Plan zuerst; sie werden vor oder mit dem Kernel veröffentlicht (`@@Praxis/veroeffentlichen.md`, V3).
