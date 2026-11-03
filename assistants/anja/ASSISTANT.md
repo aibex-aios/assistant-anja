@@ -1,7 +1,7 @@
 ---
 name: anja
 title: Anja
-version: 0.3.0
+version: 0.3.0-rc2
 description: Spezialistin für die Entwicklung von AIOS-Paketen aller Typen, vom Entwurf bis zur Veröffentlichung
 skills: [anja-anlegen, anja-pruefen, anja-veroeffentlichen]
 model:
