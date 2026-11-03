@@ -1,6 +1,6 @@
 # Praxis — Rückfragen
 
-Quellen: Spec v0.5, 01 Invarianten I7, I10, I11; 06 Invariante P3, *Holen*; 07 *Abläufe*, *Paket finden*. AA-AIbex-AIOS, V0.4, Memos 65, 67 (B2), 74. Skill `taschenrechner`.
+Quellen: Spec v0.6.1, 01 Invarianten I7, I10, I11; 02 *Freigabe*, *Block der Kernel-Skills*; 04 *Benutzer* (`PATH`); 06 Invariante P3, *Holen*; 07 *Abläufe*, *Paket finden*. AA-AIbex-AIOS, V0.4, Memos 65, 67 (B2), 74. MAA-Anja-AIOS-Expert, Memos 75, 77, 78 (F21). Skill `taschenrechner`.
 
 | # | Regel | Beispiel |
 |---|---|---|
@@ -11,12 +11,14 @@ Quellen: Spec v0.5, 01 Invarianten I7, I10, I11; 06 Invariante P3, *Holen*; 07 *
 | R5 | Bei Mehrdeutigkeit fragen statt wählen, mit dem Auswahlwerkzeug | „Hol mir skill-memo" → Auswahl des Hubs |
 | R6 | Auch ein Skill, der Daten speichert, zeigt vorher: was, wohin, mit welchem Inhalt | Skill `taschenrechner` |
 | R7 | Rückfragen klein halten: wenige Fragen auf einmal, je mit empfohlener Antwort zuerst und kurzer Folge | — |
+| R9 | **Aufruf von `aios`:** `aios` steht in der Regel nicht im `PATH`, und der Hook `PreToolUse` gibt im A/W nur einen einzelnen Befehl frei, der mit dem ausgeschriebenen Pfad des Weiterleiters beginnt (nicht `~`, nicht `$HOME`, kein `cd`, `;`, `&&`, `|`, `>`). Jeder Skill, der `aios` aufruft, sagt deshalb wörtlich: „Rufe `aios` über den Weiterleiter auf: mit dem absoluten Pfad aus dem Block `<aios-kernel-skills>` deines Master-Kontexts, als einzelnen Befehl ohne `cd`, `;`, `&&`, `|` oder Umleitung." Ohne den Satz hält sich die KI an den Wortlaut, und der Aufruf scheitert (MAA, Memo 77) | in `SKILL.md`: `aios --fetch <paket> --plan` plus der Satz |
 | R8 | **Ausnahme für Memo-Skills:** Ein Skill, dessen Aufruf ausdrücklich ein Memo verlangt, darf es ohne Rückfrage schreiben, wenn die Spec des Pakets das als Grenze nennt; der Aufruf gilt dann als Auftrag | `memo`, `aios-memo`, `5-8-zusammenfassung` |
 
 ## Was ein Paket deshalb mitbringen muss
 
 - Jeder Skill, der schreibt, beschreibt **Plan → Rückfrage → Ausführen** ausdrücklich in seiner `SKILL.md`. Ein Satz wie „ist der Wunsch eindeutig, ohne Rückfrage" ist ein Fehler (B2), außer bei einem Memo-Skill nach R8.
 - Befehle und Arbeitspferde haben einen Plan-Modus oder werden von einem Skill aufgerufen, der den Plan zeigt.
+- Jeder Skill, der `aios` aufruft, trägt den Satz aus R9. Arbeitspferde (`~/.aios/bin/<programm>`) gibt der Hook nicht frei; ihre Aufrufe fragt der Host wie gewohnt (Praxis *Arbeitspferde*).
 
 ## Schritte nach außen
 

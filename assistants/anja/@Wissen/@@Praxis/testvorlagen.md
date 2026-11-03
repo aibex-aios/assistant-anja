@@ -1,6 +1,6 @@
 # Praxis — Testvorlagen
 
-Quellen: Spec v0.4, 04 (`AIOS_HUBS`, `AIOS_GITHUB`); 06 *Hub-Liste*, *Rückfluss* (Tests). AA-AIbex-AIOS, V0.4, Memos 19 (L4), 27, 44, 61, 62 (G1), 68, 71. Code-Repo `aibex-aios`, `tests/hub/`, `tests/live/`.
+Quellen: Spec v0.6.1, 02 *Freigabe*; 04 *Umlenkung für Tests* (`AIOS_HUBS`, `AIOS_GITHUB`); 06 *Hub-Liste*, *Rückfluss* (Tests). AA-AIbex-AIOS, V0.4, Memos 19 (L4), 27, 44, 61, 62 (G1), 68, 71. MAA-Anja-AIOS-Expert, Memos 77, 80 (F28). Code-Repo `aibex-aios`, `tests/hub/`, `tests/live/`.
 
 Testvorlagen braucht, wer **automatische Tests** gegen Pakete schreibt: der Kernel und jedes Paket mit eigenem Code (Befehle, Arbeitspferde). Für ein einfaches Paket genügt die Probe.
 
@@ -12,8 +12,10 @@ Testvorlagen braucht, wer **automatische Tests** gegen Pakete schreibt: der Kern
 | E4 | Reine Testpakete tragen das Präfix `test-` und kommen nie in einen echten Hub | `test-…` |
 | E5 | Zwei Hubs mit einem gleichnamigen Paket prüfen die Rückfrage bei Mehrdeutigkeit | `skill-memo` in beiden Test-Hubs |
 | E6 | Live-Tests mit einem kleinen Modell (haiku) prüfen Hooks, Skills, Assistenten und Oberflächen; sie nehmen die Pakete aus dem Test-Hub | `tests/live/assistants.sh` |
+| E7 | **Headless-Läufe ohne die Regeln des Users** zeigen, was der Hook allein freigibt: `claude -p "<prompt>" --output-format stream-json --verbose --permission-mode default --setting-sources project --settings <datei mit nur den Hooks>` im Testprojekt; zum Schreiben von Dateien `--permission-mode acceptEdits`. Abgelehnte Aufrufe stehen im Ergebnis unter `permission_denials`, der Verlauf im Transkript | `MAAP-Probe-Anja-030/probe/run_probe.py` (MAA, Memo 77) |
 
 ## Zu beachten
 
 - Nach jeder neuen echten Version die Test-Hubs neu bauen und E2 erneut prüfen.
 - Testversionen nie veröffentlichen; ihre höhere Nummer würde sonst bei `--upgrade` gewinnen.
+- **Warum E7:** Erlaubt der User global `Bash` (`permissions.allow`), fragt der Host bei keinem Befehl; ob ein Skill auch bei anderen Usern ohne Rückfrage läuft, zeigt erst ein Lauf ohne diese Regel. Ein Lauf je Variante zeigt eine Tendenz, keine Gewissheit.
