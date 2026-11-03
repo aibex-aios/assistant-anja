@@ -1,6 +1,6 @@
 # Praxis — Oberflächen
 
-Quellen: Spec v0.4, 03 *Oberflächen*. AA-AIbex-AIOS, V0.3, Memo 60 und A10; V0.4, Memos 29, 31, 66 (B4), 67. Pakete `assistent-gaertner`, `app-taschenrechner` 0.4.2.
+Quellen: Spec v0.6.1, 03 *Oberflächen*, *`/gui`*. AA-AIbex-AIOS, V0.3, Memo 60 und A10; V0.4, Memos 29, 31, 66 (B4), 67. Pakete `assistant-gaertner`, `app-taschenrechner` 0.5.1.
 
 | # | Regel | Beispiel |
 |---|---|---|
@@ -13,6 +13,7 @@ Quellen: Spec v0.4, 03 *Oberflächen*. AA-AIbex-AIOS, V0.3, Memo 60 und A10; V0.
 | O7 | **Jede Aktion braucht einen Ausweg im Chat**, weil `sendPrompt` nicht in jeder Session ankommt: Die Oberfläche zeigt den Satz, den der User tippen kann, und der Skill versteht ihn | „Gespeichert wird im Chat. Kommt dort keine Nachricht an, schreib: Speichere die Funktionstaste A …" |
 | O8 | Was erst Claude erledigt, darf in der Oberfläche **nicht erledigt aussehen** | „Belegt: A …" sah gespeichert aus (B4) |
 | O9 | In der CLI erscheint dieselbe Beschreibung als Menü; Kacheln mit `html` fehlen dort | — |
+| O10 | `/gui` ist ein Alias: im A/W als Hülle an der Vault-Root und in jedem Projekt registriert; er zeigt die Oberfläche des Assistenten, ohne Assistenten verweist er auf `/aios-gui` | — |
 
 ## Zu beachten
 

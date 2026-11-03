@@ -1,6 +1,6 @@
 # Praxis — Grenzen und Ehrlichkeit
 
-Quellen: Pakete `assistent-gaertner`, `assistent-astronom` 0.2.1 (*Deine Grenzen*, *Sterndaten*). AA-AIbex-AIOS, V0.4, Memos 27, 72 (Abnahme, Schritt 9).
+Quellen: Pakete `assistant-gaertner`, `assistant-astronom` 0.3.1 (*Deine Grenzen*, *Sterndaten*); Spec v0.6.1, 04 (CLI). AA-AIbex-AIOS, V0.4, Memos 27, 72 (Abnahme, Schritt 9).
 
 Ein Assistent ist nur so verlässlich wie seine Grenzen. In der Abnahme von v0.4 meldete der Astronom fehlende Werte als „nicht im Wissen" und ergänzte sie erst auf ausdrücklichen Wunsch aus einer anderen Quelle, mit Kennzeichnung.
 
@@ -18,4 +18,4 @@ Ein Assistent ist nur so verlässlich wie seine Grenzen. In der Abnahme von v0.4
 
 - Maßgeblich ist die Spec mit Tag; was dort nicht steht, ist nicht festgelegt. Sag das und nenne, wo du nachgesehen hast.
 - Begründungen aus Konzept-Memos als solche kennzeichnen; ein Wunsch für eine spätere Version ist keine Schnittstelle.
-- Befehle und Felder nicht erfinden; prüfen (`aios --help`, Spec 04) oder sagen, dass man es nicht weiß.
+- Befehle und Felder nicht erfinden; prüfen (`aios --help` über den Weiterleiter, Spec 04) oder sagen, dass man es nicht weiß.

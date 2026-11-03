@@ -1,6 +1,6 @@
 # Praxis — Namen und Arten
 
-Quellen: Spec v0.5, 03 *Registrieren*, *Assistenten*; 06 *Pakete* (Paketnamen), *`manifest.yaml`*, *Umstellung von v0.3*, *Umstellung von v0.4*. AA-AIbex-AIOS, V0.4, Memo 43; V0.5, Memos 05, 15, 35.
+Quellen: Spec v0.6.1, 03 *Registrieren*, *Kernel-Skills im Vault* (reservierte Namen), *Assistenten*; 06 *Pakete* (Paketnamen), *`manifest.yaml`*, *Umstellung von v0.3*, *Umstellung von v0.4*. AA-AIbex-AIOS, V0.4, Memo 43; V0.5, Memos 05, 15, 35.
 
 | # | Regel | Beispiel |
 |---|---|---|
@@ -11,11 +11,11 @@ Quellen: Spec v0.5, 03 *Registrieren*, *Assistenten*; 06 *Pakete* (Paketnamen), 
 | N5 | Ein Assistent hat einen **Titel** für die Anzeige; Umlaute nur im Titel, der Name bleibt ASCII | `name: gaertner`, `title: Gärtner` |
 | N6 | `name` im Frontmatter ist gleich dem Verzeichnisnamen, sonst wird das Element nicht registriert bzw. nicht aufgelöst | `skills/memo/SKILL.md` mit `name: memo` |
 | N7 | Weitere Skills einer App oder eines Assistenten tragen den Elementnamen als Präfix | `taschenrechner-gui`, `gaertner-gui` |
-| N8 | Verboten: `aios` (außer für den Kernel), `aios-…`, `gui`, `none`, `inherit`; höchstens 64 Zeichen aus Kleinbuchstaben, Ziffern und `-` | — |
+| N8 | Verboten: `aios` (außer für den Kernel), `aios-…` (Kernel-Skills), `gui` (Alias), `none`, `inherit`; höchstens 64 Zeichen aus Kleinbuchstaben, Ziffern und `-` | — |
 | N9 | Maßgeblich für AIOS ist `type:` im Manifest; die Art im Namen ist eine Konvention von AIbex | — |
 
 ## Zu beachten
 
-- **Bis v0.4:** Die Demo-Assistenten hießen `assistent-gaertner` und `assistent-astronom` (älteres deutsches Präfix, V0.4, Memo 43). Ab v0.5 heißen sie `assistant-gaertner` und `assistant-astronom`; die alten Repos bleiben mit Verweis im README, und `aios --activate v0.5.<n>` benennt sie in `packages:` um (Spec 06, *Umstellung von v0.4*). Neue Pakete heißen immer `assistant-…`.
+- **Hinweis auf v0.4:** Die Demo-Assistenten hießen dort `assistent-gaertner` und `assistent-astronom`; seit v0.5 `assistant-…` (Spec 06, *Umstellung von v0.4*). Neue Pakete heißen immer `assistant-…`.
 - **Daten eines Pakets** liegen unter dem Paketnamen, nicht unter dem Elementnamen: `@Data/app-taschenrechner/`.
 - **Umstellung von v0.3:** `skills: memo` → `skill-memo`; Einträge `<assistant>/<skill>` haben kein Paket (Spec 06).

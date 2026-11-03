@@ -1,6 +1,6 @@
 # Praxis — Daten einer App
 
-Quellen: Spec v0.5, 06 *Daten der Pakete*; 07 *Definition* (K7); *Demo-App Taschenrechner*, Invarianten P1, P3, P6; 03 *Beschreibung einer Oberfläche*. AA-AIbex-AIOS, V0.4, Memos 43, 49–56, 67; V0.5, Memo 07. Paket `app-taschenrechner` 0.4.2.
+Quellen: Spec v0.6.1, 06 *Daten der Pakete*; 07 *Definition* (K7); *Demo-App Taschenrechner*, Invarianten P1, P3, P6; 03 *Beschreibung einer Oberfläche*. AA-AIbex-AIOS, V0.4, Memos 43, 49–56, 67; V0.5, Memo 07. Paket `app-taschenrechner` 0.5.1.
 
 | # | Regel | Beispiel |
 |---|---|---|
@@ -17,4 +17,4 @@ Quellen: Spec v0.5, 06 *Daten der Pakete*; 07 *Definition* (K7); *Demo-App Tasch
 
 ## Assistenten
 
-Ab v0.5 gilt `@Data/` für jedes Paket, dessen Elemente schreiben, also auch für Assistenten: `@Data/assistant-<name>/` (Spec 06, *Daten der Pakete*; V0.5, Memo 07). Vorgaben des Users gehören trotzdem in eine Regel im Masterspace, nicht nach `@Data/`.
+`@Data/` gilt für jedes Paket, dessen Elemente schreiben, also auch für Assistenten: `@Data/assistant-<name>/` (Spec 06, *Daten der Pakete*; V0.5, Memo 07). Vorgaben des Users gehören trotzdem in eine Regel im Masterspace, nicht nach `@Data/`.

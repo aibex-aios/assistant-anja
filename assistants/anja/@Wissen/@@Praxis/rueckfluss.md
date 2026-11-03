@@ -1,6 +1,6 @@
 # Praxis — Rückfluss
 
-Quellen: Spec v0.4, 06 *Rückfluss*, Invariante P5. AA-AIbex-AIOS, V0.4, Memos 11, 19 (L3, L4), 55, 56, 74, 75, 76. Paket `app-taschenrechner`, Pull Request `aibex-aios/app-taschenrechner#1`.
+Quellen: Spec v0.6.1, 06 *Rückfluss*, Invariante P5. AA-AIbex-AIOS, V0.4, Memos 11, 19 (L3, L4), 55, 56, 74, 75, 76. Paket `app-taschenrechner`, Pull Request `aibex-aios/app-taschenrechner#1`.
 
 ## Der Weg eines Beitrags
 
