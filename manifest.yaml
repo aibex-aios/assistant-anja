@@ -1,5 +1,5 @@
 name: assistant-anja
-version: 0.3.0-rc2
+version: 0.3.0-rc3
 type: assistant
 description: Assistentin Anja, Spezialistin für die Entwicklung von AIOS-Paketen aller Typen
 requires:
